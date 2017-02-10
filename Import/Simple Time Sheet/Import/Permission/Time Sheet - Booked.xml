@@ -1,0 +1,45 @@
+﻿<AML>
+ <Item type="Permission" id="7FEC2D20EC3C478F9A0C3713AF082C2C" action="add">
+  <is_private>0</is_private>
+  <name>Time Sheet - Booked</name>
+  <Relationships>
+   <Item type="Access" id="1F19DED9BF5E4F80A1FB501C97E68050" action="add">
+    <can_change_access>1</can_change_access>
+    <can_delete>1</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>1</can_update>
+    <related_id keyed_name="Administrators" type="Identity">2618D6F5A90949BAA7E920D1B04C7EE1</related_id>
+    <show_permissions_warning>1</show_permissions_warning>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Time Sheet - Booked" type="Permission">7FEC2D20EC3C478F9A0C3713AF082C2C</source_id>
+   </Item>
+   <Item type="Access" id="9779F0A98B884535A5006D1E3965CDB4" action="add">
+    <can_change_access>0</can_change_access>
+    <can_delete>0</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>0</can_update>
+    <related_id keyed_name="Manager" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>Manager</name>
+     </Item>
+    </related_id>
+    <show_permissions_warning>0</show_permissions_warning>
+    <sort_order>640</sort_order>
+    <source_id keyed_name="Time Sheet - Booked" type="Permission">7FEC2D20EC3C478F9A0C3713AF082C2C</source_id>
+   </Item>
+   <Item type="Access" id="EABAFB4CF55741C4B4BC0BD860CD8901" action="add">
+    <can_change_access>1</can_change_access>
+    <can_delete>1</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>1</can_update>
+    <related_id keyed_name="Aras PLM" type="Identity">56A96DA9E981481688563E2D14D5D878</related_id>
+    <show_permissions_warning>1</show_permissions_warning>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="Time Sheet - Booked" type="Permission">7FEC2D20EC3C478F9A0C3713AF082C2C</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

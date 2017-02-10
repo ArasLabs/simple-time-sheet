@@ -1,0 +1,114 @@
+﻿<AML>
+ <Item type="Method" id="246155750AF245DB95AD720A6EDF9C86" action="add">
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[//
+// Grid Event: OnChangeCell, OnDeleteRow
+// ItemType:  Time Sheet Pos  (relationship grid)
+// Properties: billable_hours, non_billable_hours 
+
+// easiest approach is to clear and refresh the field every change
+debugger;
+var inn = parent.thisItem.getInnovator();
+var cntx = inn.getI18NSessionContext();
+var gridRelationshipName = "Time Sheet Pos";
+
+var billableHours = 0.0;
+var nonBillableHours = 0.0;
+var totalHours = 0.0;
+var totalBillableHours = 0.0;
+var totalNonBillableHours = 0.0;
+var NumStr = "";
+var thisRow;
+var arasRelease ="Aras10";
+
+var instance = parent.parent.instance.contentWindow;
+
+// now query the DOM to get the values
+// if standard grid argument "propertyName" is not set, then this method was called from onDeleteRow
+if (typeof(propertyName) == "undefined" || propertyName === "") {
+
+  //var el=instance.getFieldByName("total_billable_hours").getElementsByTagName("input")[0];
+  //alert(el.value);
+  
+  NumStr = top.aras.getItemProperty(instance.document.item,"total_billable_hours","");
+  if (NumStr===""){NumStr="0";}
+  totalBillableHours = parseFloat(NumStr);
+  NumStr = top.aras.getItemProperty(top.frames[1].document.item,"total_non_billable_hours","");
+  if (NumStr===""){NumStr="0";}
+  totalNonBillableHours = parseFloat(NumStr);
+
+  thisRow = parent.thisItem.getItemsByXPath("Relationships/Item[@type='" + gridRelationshipName + "' and @id='" + relationshipID + "']");
+
+  // get the values of deleted row (to be subtracted)
+  NumStr = thisRow.getProperty("billable_hours","0.0"); 
+  totalBillableHours -= parseFloat(cntx.ConvertFromNeutral(NumStr,"decimal",""));
+
+  NumStr = thisRow.getProperty("non_billable_hours","0.0"); 
+  totalNonBillableHours -= parseFloat(cntx.ConvertFromNeutral(NumStr,"decimal",""));
+}
+else
+{
+  // on Cell Change recalculate all totals
+  totalBillableHours = 0.0;
+  totalNonBillableHours = 0.0;
+  //debugger;
+  var relRows = parent.thisItem.getItemsByXPath("Relationships/Item[@type='" + gridRelationshipName + "']");
+  // loop through all positions and calculate toal of billable of non-billable hours
+  for (var i=0; i< relRows.getItemCount(); i++) {
+    thisRow= relRows.getItemByIndex(i);
+    var thisRowID = thisRow.getID();
+    
+    // do not calculated values of rows marked as deleted 
+    if (thisRow.getAttribute("action","") !== "delete") {
+    
+      // calculate with new values or get old values 
+      NumStr = thisRow.getProperty("billable_hours","");
+      if (NumStr===""){NumStr="0";}
+      billableHours=parseFloat(cntx.ConvertFromNeutral(NumStr,"decimal",""));
+      billableHours = billableHours.toFixed(2);
+
+      NumStr = thisRow.getProperty("non_billable_hours",""); 
+      if (NumStr===""){NumStr="0";}
+      nonBillableHours=parseFloat(cntx.ConvertFromNeutral(NumStr,"decimal",""));
+      nonBillableHours = nonBillableHours.toFixed(2);
+
+      // build column sums
+      totalBillableHours += parseFloat(billableHours);
+      totalNonBillableHours += parseFloat(nonBillableHours);
+	  
+      // build sum on selected row and display on grid
+      if (relationshipID == thisRowID)
+      {
+	    totalHours = parseFloat(billableHours) + parseFloat(nonBillableHours);
+        NumStr = cntx.ConvertFromNeutral(totalHours.toFixed(2).toString(),"decimal","");
+	    // set num value in context
+        thisRow.setProperty("total_hours",NumStr);
+        // display num value immediately on grid in locale specific number format
+	    // #9 is column number on the grid (starting at 0)
+        gridApplet.cells(thisRowID,9).SetValue(NumStr);
+      }
+    }
+  }
+}
+
+// set new totals on top form
+
+// get current totals
+NumStr = cntx.ConvertFromNeutral(totalBillableHours.toFixed(2).toString(),"decimal","");
+if(isNaN(NumStr)) {NumStr = "0";}
+instance.handleItemChange("total_billable_hours",NumStr)
+//instance.handleItemChange("total_billable_hours",NumStr);
+NumStr = cntx.ConvertFromNeutral(totalNonBillableHours.toFixed(2).toString(),"decimal","");
+if(isNaN(NumStr)) {NumStr = "0";}
+instance.handleItemChange("total_non_billable_hours",NumStr);
+
+totalHours = totalBillableHours + totalNonBillableHours;
+
+NumStr = cntx.ConvertFromNeutral(totalHours.toFixed(2).toString(),"decimal","");
+if(isNaN(NumStr)) {NumStr = "0";}
+instance.handleItemChange("total_hours",NumStr);
+]]></method_code>
+  <method_type>JavaScript</method_type>
+  <name>Time Sheet Pos Rollup TotalHours</name>
+ </Item>
+</AML>

@@ -1,0 +1,3 @@
+<imports>
+  <package name="Simple Time Sheet" path="Simple Time Sheet\Import" />
+</imports>

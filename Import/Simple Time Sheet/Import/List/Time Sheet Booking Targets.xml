@@ -1,0 +1,19 @@
+﻿<AML>
+ <Item type="List" id="88E960C86A4B488A98C1E16BF5FC5222" action="add">
+  <name>Time Sheet Booking Targets</name>
+  <Relationships>
+   <Item type="Value" id="B95F7FC0C4F64E68941D4673B658E396" action="add">
+    <label xml:lang="en">To Department</label>
+    <sort_order>10</sort_order>
+    <source_id keyed_name="Time Sheet Booking Targets" type="List">88E960C86A4B488A98C1E16BF5FC5222</source_id>
+    <value>To Department</value>
+   </Item>
+   <Item type="Value" id="956DC8688C7D4BD9AAECE2CC5F828248" action="add">
+    <label xml:lang="en">To Project Activity</label>
+    <sort_order>20</sort_order>
+    <source_id keyed_name="Time Sheet Booking Targets" type="List">88E960C86A4B488A98C1E16BF5FC5222</source_id>
+    <value>To Project Activity</value>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

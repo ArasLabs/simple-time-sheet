@@ -1,0 +1,306 @@
+﻿<AML>
+ <Item type="Form" id="DD4E0D98464E40CA932F2D9BD0D5FAA0" action="add">
+  <category_form>0</category_form>
+  <height>234</height>
+  <stylesheet><![CDATA[../styles/default.css]]></stylesheet>
+  <width>699</width>
+  <name>Time Sheet Pos</name>
+  <Relationships>
+   <Item type="Body" id="12626CB5D4794BD193C4C04B6042B587" action="add">
+    <bg_attach>scroll</bg_attach>
+    <bg_color>#FFFFFF</bg_color>
+    <bg_repeat>no-repeat</bg_repeat>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Time Sheet Pos" type="Form">DD4E0D98464E40CA932F2D9BD0D5FAA0</source_id>
+    <Relationships>
+     <Item type="Field" id="0F0BD838D7604317A9FF8C67B162397C" action="add">
+      <bg_color>beige  </bg_color>
+      <border_width>0</border_width>
+      <field_type>date</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Activity Date</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <propertytype_id keyed_name="activity_date" type="Property">024A4BD671C54C7888193A3B9DD0E206</propertytype_id>
+      <sort_order>640</sort_order>
+      <source_id keyed_name="12626CB5D4794BD193C4C04B6042B587" type="Body">12626CB5D4794BD193C4C04B6042B587</source_id>
+      <tab_index>4</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>300</x>
+      <y>50</y>
+      <name>activity_date</name>
+     </Item>
+     <Item type="Field" id="92C327AF3B3D4216BB0D1D9463C2B2D3" action="add">
+      <bg_color>beige  </bg_color>
+      <border_width>0</border_width>
+      <display_length>80</display_length>
+      <field_type>text</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Activity</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <propertytype_id keyed_name="activity_description" type="Property">378F34432C894710BDB22EA7AA9E7E61</propertytype_id>
+      <sort_order>256</sort_order>
+      <source_id keyed_name="12626CB5D4794BD193C4C04B6042B587" type="Body">12626CB5D4794BD193C4C04B6042B587</source_id>
+      <tab_index>2</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>5</x>
+      <y>5</y>
+      <name>activity_description</name>
+     </Item>
+     <Item type="Field" id="B846D37087794948B7F2168F80A038A7" action="add">
+      <bg_color>beige  </bg_color>
+      <border_width>0</border_width>
+      <field_type>dropdown</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Location</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <propertytype_id keyed_name="activity_location" type="Property">86C1CD0919524CD88B9AEBCE87DF949F</propertytype_id>
+      <sort_order>512</sort_order>
+      <source_id keyed_name="12626CB5D4794BD193C4C04B6042B587" type="Body">12626CB5D4794BD193C4C04B6042B587</source_id>
+      <tab_index>5</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>180</x>
+      <y>45</y>
+      <name>activity_location</name>
+     </Item>
+     <Item type="Field" id="48ADDDE802EE40F6A05144DDC592A0D8" action="add">
+      <bg_color>#FFFFFF</bg_color>
+      <border_width>0</border_width>
+      <field_type>textarea</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Notes</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <propertytype_id keyed_name="activity_notes" type="Property">59BB06E5881B44A39FAC3ABF5ACC642F</propertytype_id>
+      <sort_order>768</sort_order>
+      <source_id keyed_name="12626CB5D4794BD193C4C04B6042B587" type="Body">12626CB5D4794BD193C4C04B6042B587</source_id>
+      <tab_index>11</tab_index>
+      <tab_stop>1</tab_stop>
+      <textarea_cols>80</textarea_cols>
+      <textarea_rows>4</textarea_rows>
+      <x>5</x>
+      <y>160</y>
+      <name>activity_notes</name>
+     </Item>
+     <Item type="Field" id="EBCC30C9E1F94C80B47BE4C086E4B79C" action="add">
+      <bg_color>beige  </bg_color>
+      <border_width>0</border_width>
+      <field_type>dropdown</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Activity Type</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <propertytype_id keyed_name="activity_type" type="Property">1FB94C4BDBB5434FB4A83311BDB8122E</propertytype_id>
+      <sort_order>384</sort_order>
+      <source_id keyed_name="12626CB5D4794BD193C4C04B6042B587" type="Body">12626CB5D4794BD193C4C04B6042B587</source_id>
+      <tab_index>3</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>5</x>
+      <y>45</y>
+      <name>activity_type</name>
+     </Item>
+     <Item type="Field" id="341AFA0F43934812965CC7DB7A1386B0" action="add">
+      <bg_color>#FFFFFF</bg_color>
+      <border_width>0</border_width>
+      <display_length>10</display_length>
+      <field_type>text</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Billable Hours</label>
+      <label_position>left</label_position>
+      <list_no_blank>0</list_no_blank>
+      <propertytype_id keyed_name="billable_hours" type="Property">0D81473D47804BA381150F38E332B930</propertytype_id>
+      <sort_order>896</sort_order>
+      <source_id keyed_name="12626CB5D4794BD193C4C04B6042B587" type="Body">12626CB5D4794BD193C4C04B6042B587</source_id>
+      <tab_index>7</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>105</x>
+      <y>130</y>
+      <name>billable_hours</name>
+     </Item>
+     <Item type="Field" id="D416822C05C24C7B9B5569CA9723657A" action="add">
+      <bg_color>#FFFFFF</bg_color>
+      <border_width>0</border_width>
+      <field_type>text</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Billing Ref</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <propertytype_id keyed_name="billing_reference" type="Property">7CE41C09E69B44E6B4AE85284570BFAB</propertytype_id>
+      <sort_order>1024</sort_order>
+      <source_id keyed_name="12626CB5D4794BD193C4C04B6042B587" type="Body">12626CB5D4794BD193C4C04B6042B587</source_id>
+      <tab_index>8</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>300</x>
+      <y>120</y>
+      <name>billing_reference</name>
+     </Item>
+     <Item type="Field" id="1E891FCCEFA849B69585DC031E1F3383" action="add">
+      <bg_color>beige  </bg_color>
+      <border_width>0</border_width>
+      <field_type>item</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Created By</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <sort_order>1152</sort_order>
+      <source_id keyed_name="12626CB5D4794BD193C4C04B6042B587" type="Body">12626CB5D4794BD193C4C04B6042B587</source_id>
+      <tab_index>640</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>465</x>
+      <y>155</y>
+      <name>created_by_id</name>
+     </Item>
+     <Item type="Field" id="66EF2CF70003421CBBD8571CE062071F" action="add">
+      <bg_color>#FFFFFF</bg_color>
+      <border_width>0</border_width>
+      <display_length>10</display_length>
+      <field_type>text</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Non-Billable Hours</label>
+      <label_position>left</label_position>
+      <list_no_blank>0</list_no_blank>
+      <propertytype_id keyed_name="non_billable_hours" type="Property">C9D68694273D4ABF92B5E48B1BE9648C</propertytype_id>
+      <sort_order>1280</sort_order>
+      <source_id keyed_name="12626CB5D4794BD193C4C04B6042B587" type="Body">12626CB5D4794BD193C4C04B6042B587</source_id>
+      <tab_index>6</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>80</x>
+      <y>100</y>
+      <name>non_billable_hours</name>
+     </Item>
+     <Item type="Field" id="95EDA82D55BB4D328FD8351BA83A8AF2" action="add">
+      <bg_color>#FFFFFF</bg_color>
+      <border_width>0</border_width>
+      <field_type>item</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">owned_by_id</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <sort_order>1536</sort_order>
+      <source_id keyed_name="12626CB5D4794BD193C4C04B6042B587" type="Body">12626CB5D4794BD193C4C04B6042B587</source_id>
+      <tab_index>768</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>465</x>
+      <y>115</y>
+      <name>owned_by_id</name>
+     </Item>
+     <Item type="Field" id="3196B6B003C247BF8893DA6E72BB9A37" action="add">
+      <bg_color>beige  </bg_color>
+      <border_width>0</border_width>
+      <display_length>2</display_length>
+      <field_type>text</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Pos</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <propertytype_id keyed_name="pos_number" type="Property">25DD3844195F4EA3B49C2024765BA448</propertytype_id>
+      <sort_order>1408</sort_order>
+      <source_id keyed_name="12626CB5D4794BD193C4C04B6042B587" type="Body">12626CB5D4794BD193C4C04B6042B587</source_id>
+      <tab_index>1</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>5</x>
+      <y>120</y>
+      <name>pos_number</name>
+     </Item>
+     <Item type="Field" id="03D3EF7C17E444C998AF6F0B3978CF8E" action="add">
+      <bg_color>#FFFFFF</bg_color>
+      <border_width>0</border_width>
+      <field_type>text</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Project</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <propertytype_id keyed_name="project_reference" type="Property">2ABD0BBA564D4D20BD03FE7C2379A9ED</propertytype_id>
+      <sort_order>1664</sort_order>
+      <source_id keyed_name="12626CB5D4794BD193C4C04B6042B587" type="Body">12626CB5D4794BD193C4C04B6042B587</source_id>
+      <tab_index>9</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>459</x>
+      <y>6</y>
+      <name>project_reference</name>
+     </Item>
+    </Relationships>
+   </Item>
+  </Relationships>
+ </Item>
+ <Item type="Field" id="1E891FCCEFA849B69585DC031E1F3383" action="edit">
+  <!-- Please note: this AML depends on the "Time Sheet Pos" ItemType. Please make sure it exists before running this. -->
+  <propertytype_id>
+   <Item type="Property" action="get" select="id">
+    <name>created_by_id</name>
+    <source_id type="ItemType" keyed_name="Time Sheet Pos">8F86EA8E4A654E43AED69AAA7B51A6FF</source_id>
+   </Item>
+  </propertytype_id>
+ </Item>
+ <Item type="Field" id="95EDA82D55BB4D328FD8351BA83A8AF2" action="edit">
+  <!-- Please note: this AML depends on the "Time Sheet Pos" ItemType. Please make sure it exists before running this. -->
+  <propertytype_id>
+   <Item type="Property" action="get" select="id">
+    <name>owned_by_id</name>
+    <source_id type="ItemType" keyed_name="Time Sheet Pos">8F86EA8E4A654E43AED69AAA7B51A6FF</source_id>
+   </Item>
+  </propertytype_id>
+ </Item>
+</AML>

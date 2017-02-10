@@ -1,0 +1,17 @@
+﻿<AML>
+ <Item type="Identity" id="98875DDD322F447BAE3E285ED034B3A4" action="add">
+  <description>For each member a logic will create new sheets weekly</description>
+  <is_alias>0</is_alias>
+  <name>Time Sheet Auto Create Weekly</name>
+  <Relationships />
+ </Item>
+ <Item type="Member" id="9A3E507BF71E434A96B9E163C4C8856B" action="add">
+  <related_id keyed_name="Innovator Admin" type="Identity">
+   <Item type="Identity" action="get" select="id">
+    <name>Innovator Admin</name>
+   </Item>
+  </related_id>
+  <sort_order>128</sort_order>
+  <source_id keyed_name="Time Sheet Auto Create Weekly" type="Identity">98875DDD322F447BAE3E285ED034B3A4</source_id>
+ </Item>
+</AML>

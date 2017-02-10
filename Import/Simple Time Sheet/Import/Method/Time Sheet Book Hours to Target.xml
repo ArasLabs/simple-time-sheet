@@ -1,0 +1,59 @@
+﻿<AML>
+ <Item type="Method" id="91A78078C2A540B48C14A267F984A567" action="add">
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA['called on all post-Transition events of Life Cycle
+'  "Time Sheet" --> status = Booked
+
+'MethodTemplateName=VBMain;
+Dim inn As Innovator = Me.getInnovator()
+Dim res As Item
+  
+Function Main() As Item
+  Dim thisItem As Item = Me
+
+  'Loop through all Time Sheet Positions
+  Dim timePosRels As ITem = thisItem.getRelationships("Time Sheet Pos")
+  Dim i As Integer
+
+  For i=0 To timePosRels.getItemCount()-1
+    Dim bookingTargetType As String = timePosRels.getItemByIndex(i).getProperty("booking_target_type","")
+  
+    Select Case (bookingTargetType)
+     Case "To Project Activity"
+        res = fnBookHoursToProjectActivites(timePosRels.getItemByIndex(i))
+
+     Case "To Department"
+        res = fnBookHoursToDepartmentCode(timePosRels.getItemByIndex(i))
+
+    '### add more custom logic to transfer hours from Relatinship "Time Sheet Pos"
+    ' to other items.
+  End Select
+
+  Next i
+
+  'call other server method to set 'Ending Period Date"
+  res = thisItem.apply("Time Sheet Set Reporting Dates")
+
+  Return Me
+End Function
+
+'=============
+Private Function fnBookHoursToProjectActivites (ByRef timeSheetPos As Item) As Item
+   '### add more custom logic to transfer hours from Relatinship "Time Sheet Pos"
+   ' to other items.
+	
+  Return inn.newResult("OK")
+End Function
+
+
+'=============
+Private Function fnBookHoursToDepartmentCode (ByRef timeSheetPos As Item) As Item
+   '### add more custom logic to transfer hours from Relatinship "Time Sheet Pos"
+   ' to other items.
+
+  Return inn.newResult("OK")
+End Function]]></method_code>
+  <method_type>VB</method_type>
+  <name>Time Sheet Book Hours to Target</name>
+ </Item>
+</AML>

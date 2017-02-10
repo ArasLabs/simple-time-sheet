@@ -1,0 +1,86 @@
+﻿<AML>
+ <Item type="Permission" id="A87F0C79D9504159909E95931C957236" action="add">
+  <is_private>0</is_private>
+  <name>Time Sheet - New</name>
+  <Relationships>
+   <Item type="Access" id="0F70787A37314611BE01D14A7F42972D" action="add">
+    <can_change_access>1</can_change_access>
+    <can_delete>1</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>1</can_update>
+    <related_id keyed_name="Aras PLM" type="Identity">56A96DA9E981481688563E2D14D5D878</related_id>
+    <show_permissions_warning>1</show_permissions_warning>
+    <sort_order>640</sort_order>
+    <source_id keyed_name="Time Sheet - New" type="Permission">A87F0C79D9504159909E95931C957236</source_id>
+   </Item>
+   <Item type="Access" id="46D3E7F495CD43ACA5C80DDFA6F014EF" action="add">
+    <can_change_access>1</can_change_access>
+    <can_delete>1</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>1</can_update>
+    <related_id keyed_name="Administrators" type="Identity">2618D6F5A90949BAA7E920D1B04C7EE1</related_id>
+    <show_permissions_warning>1</show_permissions_warning>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Time Sheet - New" type="Permission">A87F0C79D9504159909E95931C957236</source_id>
+   </Item>
+   <Item type="Access" id="592916AEE9114AEF8B6D8F710FFA08F9" action="add">
+    <can_change_access>0</can_change_access>
+    <can_delete>0</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>0</can_update>
+    <related_id keyed_name="Team" type="Identity">275764859FDE49AF817571E8BFD8CBB5</related_id>
+    <show_permissions_warning>0</show_permissions_warning>
+    <sort_order>768</sort_order>
+    <source_id keyed_name="Time Sheet - New" type="Permission">A87F0C79D9504159909E95931C957236</source_id>
+   </Item>
+   <Item type="Access" id="5D9B4214F3EC42CF8092CDFC3578F14D" action="add">
+    <can_change_access>0</can_change_access>
+    <can_delete>1</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>1</can_update>
+    <related_id keyed_name="Owner" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>Owner</name>
+     </Item>
+    </related_id>
+    <show_permissions_warning>0</show_permissions_warning>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="Time Sheet - New" type="Permission">A87F0C79D9504159909E95931C957236</source_id>
+   </Item>
+   <Item type="Access" id="BE0615FAC7204903845D2BC86A43F9D2" action="add">
+    <can_change_access>0</can_change_access>
+    <can_delete>1</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>1</can_update>
+    <related_id keyed_name="Creator" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>Creator</name>
+     </Item>
+    </related_id>
+    <show_permissions_warning>0</show_permissions_warning>
+    <sort_order>512</sort_order>
+    <source_id keyed_name="Time Sheet - New" type="Permission">A87F0C79D9504159909E95931C957236</source_id>
+   </Item>
+   <Item type="Access" id="D0ECEDE8D90E4EA59E8E3205E6140E6C" action="add">
+    <can_change_access>0</can_change_access>
+    <can_delete>0</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>1</can_update>
+    <related_id keyed_name="Manager" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>Manager</name>
+     </Item>
+    </related_id>
+    <show_permissions_warning>0</show_permissions_warning>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="Time Sheet - New" type="Permission">A87F0C79D9504159909E95931C957236</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

@@ -1,0 +1,291 @@
+﻿<AML>
+ <Item type="ItemType" id="CADBECEDADCB4BFF88DB307ABDCDAA3E" action="add">
+  <allow_private_permission>1</allow_private_permission>
+  <auto_search>0</auto_search>
+  <enforce_discovery>1</enforce_discovery>
+  <hide_where_used>0</hide_where_used>
+  <implementation_type>table</implementation_type>
+  <instance_data>TIME_SHEET</instance_data>
+  <is_dependent>0</is_dependent>
+  <is_relationship>0</is_relationship>
+  <is_versionable>0</is_versionable>
+  <label xml:lang="en">Time Sheet</label>
+  <label_plural xml:lang="en">Time Sheets</label_plural>
+  <large_icon>../Images/calendar-hover.svg</large_icon>
+  <open_icon>../Images/calendar-hover.svg</open_icon>
+  <revisions keyed_name="Default" type="Revision">7FE395DD8B9F4E1090756A34B733D75E</revisions>
+  <show_parameters_tab>0</show_parameters_tab>
+  <structure_view>tab view</structure_view>
+  <unlock_on_logout>0</unlock_on_logout>
+  <use_src_access>0</use_src_access>
+  <name>Time Sheet</name>
+  <Relationships>
+   <Item type="Property" id="3BA9F7FE9F064DA38F8BFB2BD9FFCF2C" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>300</column_width>
+    <data_type>string</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Description</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>11</sort_order>
+    <source_id keyed_name="Time Sheet" type="ItemType" name="Time Sheet">CADBECEDADCB4BFF88DB307ABDCDAA3E</source_id>
+    <stored_length>255</stored_length>
+    <track_history>0</track_history>
+    <name>description</name>
+   </Item>
+   <Item type="Property" id="C8411F3210724CBBA63C3770AA6A362F" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>200</column_width>
+    <data_source keyed_name="Time Sheet Numbers">9C9C5654C40E4B5CA309105DCDFFB6AE</data_source>
+    <data_type>sequence</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <keyed_name_order>1</keyed_name_order>
+    <label xml:lang="en">Number</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>2</sort_order>
+    <source_id keyed_name="Time Sheet" type="ItemType" name="Time Sheet">CADBECEDADCB4BFF88DB307ABDCDAA3E</source_id>
+    <track_history>0</track_history>
+    <name>item_number</name>
+   </Item>
+   <Item type="Property" id="964E52D2A2CB4469BC6C5F142DFD3280" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>150</column_width>
+    <data_type>string</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>1</is_required>
+    <keyed_name_order>2</keyed_name_order>
+    <label xml:lang="en">Name</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3</sort_order>
+    <source_id keyed_name="Time Sheet" type="ItemType" name="Time Sheet">CADBECEDADCB4BFF88DB307ABDCDAA3E</source_id>
+    <stored_length>80</stored_length>
+    <track_history>0</track_history>
+    <name>name</name>
+   </Item>
+   <Item type="Property" id="5C9C09E610334366A0FCED52448C1B0B" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>100</column_width>
+    <data_type>date</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Reporting Period End</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>8</sort_order>
+    <source_id keyed_name="Time Sheet" type="ItemType" name="Time Sheet">CADBECEDADCB4BFF88DB307ABDCDAA3E</source_id>
+    <track_history>0</track_history>
+    <name>reporting_period_ended_on</name>
+   </Item>
+   <Item type="Property" id="10DC4AC187B445479BA5FE7AA8AD057C" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>100</column_width>
+    <data_type>date</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>1</is_required>
+    <label xml:lang="en">Reporting Period Start</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>7</sort_order>
+    <source_id keyed_name="Time Sheet" type="ItemType" name="Time Sheet">CADBECEDADCB4BFF88DB307ABDCDAA3E</source_id>
+    <track_history>0</track_history>
+    <name>reporting_period_started_on</name>
+   </Item>
+   <Item type="Property" id="F13C250C5DCA4ABA904D1073955F1C29" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>100</column_width>
+    <data_type>decimal</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Total Billable Hours</label>
+    <prec>10</prec>
+    <range_inclusive>0</range_inclusive>
+    <readonly>1</readonly>
+    <scale>3</scale>
+    <sort_order>5</sort_order>
+    <source_id keyed_name="Time Sheet" type="ItemType" name="Time Sheet">CADBECEDADCB4BFF88DB307ABDCDAA3E</source_id>
+    <track_history>0</track_history>
+    <name>total_billable_hours</name>
+   </Item>
+   <Item type="Property" id="5C9268C80A5B45BEA143E0AB100F3F10" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>100</column_width>
+    <data_type>decimal</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Total Hours</label>
+    <prec>10</prec>
+    <range_inclusive>0</range_inclusive>
+    <readonly>1</readonly>
+    <scale>3</scale>
+    <sort_order>4</sort_order>
+    <source_id keyed_name="Time Sheet" type="ItemType" name="Time Sheet">CADBECEDADCB4BFF88DB307ABDCDAA3E</source_id>
+    <track_history>0</track_history>
+    <name>total_hours</name>
+   </Item>
+   <Item type="Property" id="7B6500AE4C9D4799A1F1EA084FCE424E" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>100</column_width>
+    <data_type>decimal</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Total Non-Billable Hours</label>
+    <prec>10</prec>
+    <range_inclusive>0</range_inclusive>
+    <readonly>1</readonly>
+    <scale>3</scale>
+    <sort_order>6</sort_order>
+    <source_id keyed_name="Time Sheet" type="ItemType" name="Time Sheet">CADBECEDADCB4BFF88DB307ABDCDAA3E</source_id>
+    <track_history>0</track_history>
+    <name>total_non_billable_hours</name>
+   </Item>
+   <Item type="View" id="97668CA13E6C4360BC4F5B8AFDCB38AC" action="add">
+    <client>js</client>
+    <related_id keyed_name="Time Sheet" type="Form">383BF1B2454A45118AFDC67476D52F54</related_id>
+    <role keyed_name="World" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>World</name>
+     </Item>
+    </role>
+    <show_ssvc>0</show_ssvc>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Time Sheet" type="ItemType" name="Time Sheet">CADBECEDADCB4BFF88DB307ABDCDAA3E</source_id>
+    <type>default</type>
+   </Item>
+   <Item type="ItemType Life Cycle" id="54C6C7D2B2244B76A8AA2930A1AD0E2E" action="add">
+    <related_id keyed_name="TimeSheet2" type="Life Cycle Map">96BECFC7EDF746488F7B658F066D4403</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Time Sheet" type="ItemType" name="Time Sheet">CADBECEDADCB4BFF88DB307ABDCDAA3E</source_id>
+   </Item>
+   <Item type="Allowed Workflow" id="39292F9E6604407785F0C7A857E38076" action="add">
+    <is_default>0</is_default>
+    <related_id keyed_name="Time Sheet" type="Workflow Map">944E9AF9722F4D56B8B0DFEC53D8F75A</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Time Sheet" type="ItemType" name="Time Sheet">CADBECEDADCB4BFF88DB307ABDCDAA3E</source_id>
+   </Item>
+   <Item type="TOC Access" id="A70BD658E88C4AFFA4B8DEE3FDD6174C" action="add">
+    <related_id keyed_name="Time Sheet Users" type="Identity">8E14656E18C047A8A15C724A91F1FE5C</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Time Sheet" type="ItemType" name="Time Sheet">CADBECEDADCB4BFF88DB307ABDCDAA3E</source_id>
+    <category>My Innovator</category>
+   </Item>
+   <Item type="Can Add" id="DEEC1E37CFA746B9A82D170142042618" action="add">
+    <can_add>1</can_add>
+    <related_id keyed_name="Time Sheet Users" type="Identity">8E14656E18C047A8A15C724A91F1FE5C</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Time Sheet" type="ItemType" name="Time Sheet">CADBECEDADCB4BFF88DB307ABDCDAA3E</source_id>
+   </Item>
+   <Item type="Allowed Permission" id="9CCE3882E4124690AA7AA39ECEA36423" action="add">
+    <is_default>1</is_default>
+    <related_id keyed_name="Time Sheet - New" type="Permission">A87F0C79D9504159909E95931C957236</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Time Sheet" type="ItemType" name="Time Sheet">CADBECEDADCB4BFF88DB307ABDCDAA3E</source_id>
+   </Item>
+   <Item type="Item Report" id="0EC5D1A4EDC24578BE67A1B226E4E283" action="add">
+    <related_id keyed_name="Time Sheet Summary Report" type="Report">F022430A7DE9409AB348194F760A4869</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Time Sheet" type="ItemType" name="Time Sheet">CADBECEDADCB4BFF88DB307ABDCDAA3E</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+ <Item type="ItemType" id="CADBECEDADCB4BFF88DB307ABDCDAA3E" action="edit">
+  <Relationships>
+   <Item type="Property" action="edit" where="source_id='CADBECEDADCB4BFF88DB307ABDCDAA3E' and name='managed_by_id'">
+    <column_alignment>left</column_alignment>
+    <column_width>120</column_width>
+    <data_source keyed_name="Identity" type="ItemType" name="Identity">E582AB17663F4EF28460015B2BE9E094</data_source>
+    <data_type>item</data_type>
+    <default_value xml:lang="en">7A9EEE90D94D492C9FE4CDF14BDC6659</default_value>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">Reviewers</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>10</sort_order>
+    <source_id keyed_name="Time Sheet" type="ItemType" name="Time Sheet">CADBECEDADCB4BFF88DB307ABDCDAA3E</source_id>
+    <track_history>0</track_history>
+    <name>managed_by_id</name>
+   </Item>
+   <Item type="Property" action="edit" where="source_id='CADBECEDADCB4BFF88DB307ABDCDAA3E' and name='owned_by_id'">
+    <column_alignment>left</column_alignment>
+    <column_width>120</column_width>
+    <data_source keyed_name="Identity" type="ItemType" name="Identity">E582AB17663F4EF28460015B2BE9E094</data_source>
+    <data_type>item</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>1</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">Reported Time For</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>9</sort_order>
+    <source_id keyed_name="Time Sheet" type="ItemType" name="Time Sheet">CADBECEDADCB4BFF88DB307ABDCDAA3E</source_id>
+    <track_history>0</track_history>
+    <name>owned_by_id</name>
+   </Item>
+   <Item type="Property" action="edit" where="source_id='CADBECEDADCB4BFF88DB307ABDCDAA3E' and name='state'">
+    <column_alignment>left</column_alignment>
+    <column_width>80</column_width>
+    <data_type>string</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Status</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>1</sort_order>
+    <source_id keyed_name="Time Sheet" type="ItemType" name="Time Sheet">CADBECEDADCB4BFF88DB307ABDCDAA3E</source_id>
+    <stored_length>32</stored_length>
+    <track_history>0</track_history>
+    <name>state</name>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

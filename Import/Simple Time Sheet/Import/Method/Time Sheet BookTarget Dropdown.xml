@@ -1,0 +1,68 @@
+﻿<AML>
+ <Item type="Method" id="10EAFCF69AB446F2AAD1668DDD5CB205" action="add">
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[// Time Sheet posotion Booking Targets Dropdown
+//
+// Populate the 'booking_target_name' dropdown list with values
+// based on 'booking_target_type' setting 
+
+// Check for the existence of the grid and the current column (colNumber)
+var targetColumnIndex = colNumber;
+if (targetColumnIndex < 0) { top.aras.AlertError("Error: Column not found"); return; }
+if (!gridApplet) { return; }
+//debugger;
+
+// read value from column 3 in grid
+var bookingTargetType = gridApplet.cells(relationshipID,2).getValue();
+var buildDropdown = false;
+var amlStr = "";
+var listPropName = "";
+switch (bookingTargetType)
+{
+  case "To Project Activity":
+    buildDropdown = true;
+    var TimeSheetOwner = top.aras.getItemProperty(top.frames[1].document.item,"owned_by_id","");
+    if (TimeSheetOwner === "") {return;}
+    listPropName = 'name';
+    amlStr += "<Item type='Activity2' action='get' select='"+listPropName+",owned_by_id'>";
+    amlStr += "<owned_by_id>"+ TimeSheetOwner +"</owned_by_id>";
+    amlStr += "</Item>";
+    break;
+
+  case "To Project Activity":
+    buildDropdown = false;    
+    break;
+}
+
+if (!buildDropdown) {return;}  // text input
+
+// get
+
+// read projects activities
+var q = top.aras.newIOMItem("","");
+q.loadAML(amlStr);
+q = q.apply();
+
+var dropDownItems = q.apply();
+if (dropDownItems.isError()||dropDownItems.getItemCount()<1 ) {
+  top.aras.AlertError("Canno build the dropdown list!");
+  return;
+}
+
+// Create arrays for the list values (ids) and labels (names)
+var nameArray = new Array(" ");
+var idArray = new Array(" ");
+
+for (var k=0; k<dropDownItems.getItemCount(); k++) {
+  idArray.push(dropDownItems.getItemByIndex(k).getProperty(listPropName,""));
+  nameArray.push(dropDownItems.getItemByIndex(k).getProperty(listPropName,"")); 
+}
+
+// Add the dropdown to the cell
+var delim = gridApplet.Delimeter;
+gridApplet.cells(relationshipID,targetColumnIndex).setEditType(2);
+gridApplet.cells(relationshipID,targetColumnIndex).setCombo(nameArray.join(delim), idArray.join(delim));]]></method_code>
+  <method_type>JavaScript</method_type>
+  <name>Time Sheet BookTarget Dropdown</name>
+ </Item>
+</AML>

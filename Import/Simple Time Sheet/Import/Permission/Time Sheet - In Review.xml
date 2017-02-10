@@ -1,0 +1,86 @@
+﻿<AML>
+ <Item type="Permission" id="CF48A9B4029C44D88F8A6CFF99732C04" action="add">
+  <is_private>0</is_private>
+  <name>Time Sheet - In Review</name>
+  <Relationships>
+   <Item type="Access" id="1A07EB81EBDA4A1FA7876945D3623979" action="add">
+    <can_change_access>0</can_change_access>
+    <can_delete>0</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>1</can_update>
+    <related_id keyed_name="Owner" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>Owner</name>
+     </Item>
+    </related_id>
+    <show_permissions_warning>0</show_permissions_warning>
+    <sort_order>512</sort_order>
+    <source_id keyed_name="Time Sheet - In Review" type="Permission">CF48A9B4029C44D88F8A6CFF99732C04</source_id>
+   </Item>
+   <Item type="Access" id="5A70E5FD6C9F4734AAD3D5A950A668A5" action="add">
+    <can_change_access>0</can_change_access>
+    <can_delete>0</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>0</can_update>
+    <related_id keyed_name="Team" type="Identity">275764859FDE49AF817571E8BFD8CBB5</related_id>
+    <show_permissions_warning>0</show_permissions_warning>
+    <sort_order>768</sort_order>
+    <source_id keyed_name="Time Sheet - In Review" type="Permission">CF48A9B4029C44D88F8A6CFF99732C04</source_id>
+   </Item>
+   <Item type="Access" id="79156ADC835341AB954C051234980004" action="add">
+    <can_change_access>0</can_change_access>
+    <can_delete>0</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>0</can_update>
+    <related_id keyed_name="Creator" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>Creator</name>
+     </Item>
+    </related_id>
+    <show_permissions_warning>0</show_permissions_warning>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="Time Sheet - In Review" type="Permission">CF48A9B4029C44D88F8A6CFF99732C04</source_id>
+   </Item>
+   <Item type="Access" id="98ABE250556D4D9C849176CC72B074A9" action="add">
+    <can_change_access>1</can_change_access>
+    <can_delete>1</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>1</can_update>
+    <related_id keyed_name="Aras PLM" type="Identity">56A96DA9E981481688563E2D14D5D878</related_id>
+    <show_permissions_warning>1</show_permissions_warning>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="Time Sheet - In Review" type="Permission">CF48A9B4029C44D88F8A6CFF99732C04</source_id>
+   </Item>
+   <Item type="Access" id="B11FE0E5180B49F1AA29E86E4DF38731" action="add">
+    <can_change_access>1</can_change_access>
+    <can_delete>1</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>1</can_update>
+    <related_id keyed_name="Administrators" type="Identity">2618D6F5A90949BAA7E920D1B04C7EE1</related_id>
+    <show_permissions_warning>1</show_permissions_warning>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Time Sheet - In Review" type="Permission">CF48A9B4029C44D88F8A6CFF99732C04</source_id>
+   </Item>
+   <Item type="Access" id="B211A8E56E9F4750B6ABCD2B7C698330" action="add">
+    <can_change_access>0</can_change_access>
+    <can_delete>0</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>1</can_update>
+    <related_id keyed_name="Manager" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>Manager</name>
+     </Item>
+    </related_id>
+    <show_permissions_warning>0</show_permissions_warning>
+    <sort_order>640</sort_order>
+    <source_id keyed_name="Time Sheet - In Review" type="Permission">CF48A9B4029C44D88F8A6CFF99732C04</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

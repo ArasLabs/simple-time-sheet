@@ -1,0 +1,38 @@
+﻿<AML>
+ <Item type="List" id="AF0F03DE0AB643BCB880228BFC2C32CB" action="add">
+  <description />
+  <name>Time Sheet Locations</name>
+  <Relationships>
+   <Item type="Value" id="9FBAA24992C74CF29C1FE6DF957AADDB" action="add">
+    <label xml:lang="en">at Office</label>
+    <sort_order>10</sort_order>
+    <source_id keyed_name="Time Sheet Locations" type="List">AF0F03DE0AB643BCB880228BFC2C32CB</source_id>
+    <value>at Office</value>
+   </Item>
+   <Item type="Value" id="98EE370035644719B966A00F3F4F9C0D" action="add">
+    <label xml:lang="en">at Customer</label>
+    <sort_order>20</sort_order>
+    <source_id keyed_name="Time Sheet Locations" type="List">AF0F03DE0AB643BCB880228BFC2C32CB</source_id>
+    <value>at Customer</value>
+   </Item>
+   <Item type="Value" id="9FDB8303692A4E1C817B89E7685672A8" action="add">
+    <label xml:lang="en">at Partner</label>
+    <sort_order>30</sort_order>
+    <source_id keyed_name="Time Sheet Locations" type="List">AF0F03DE0AB643BCB880228BFC2C32CB</source_id>
+    <value>at Partner</value>
+   </Item>
+   <Item type="Value" id="5914BD9ABF184D77BE4389671E9997F7" action="add">
+    <label xml:lang="en">Hotel</label>
+    <sort_order>40</sort_order>
+    <source_id keyed_name="Time Sheet Locations" type="List">AF0F03DE0AB643BCB880228BFC2C32CB</source_id>
+    <value>Hotel</value>
+   </Item>
+   <Item type="Value" id="C22D65CCDFC946E8B6796383D7A4E3F2" action="add">
+    <label xml:lang="en">Other</label>
+    <sort_order>50</sort_order>
+    <source_id keyed_name="Time Sheet Locations" type="List">AF0F03DE0AB643BCB880228BFC2C32CB</source_id>
+    <value>Other</value>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

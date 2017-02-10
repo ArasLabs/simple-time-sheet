@@ -1,0 +1,66 @@
+﻿<AML>
+ <Item type="Method" id="D8D9B44EB987462693E458A14CFA23AD" action="add">
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[' this logic must be called from the Aras scheduling service (server side)
+' on every sunday of the week
+'
+' it will read identity "Time Sheet Auto Create Weekly" and create and submit
+' weekly time sheets for each member listed
+'
+'System.Diagnostics.Debugger.Break()
+Dim inn As Innovator = Me.getInnovator()
+
+Dim AutoCreateIdentity As Item = inn.getItemByKeyedName("Identity","Time Sheet Auto Create Weekly")
+If AutoCreateIdentity.isError() Then Return Me 'nothing to do
+
+Dim AutoCreateMembers As Item = inn.newItem("Member","get")
+AutoCreateMembers.setAttribute("select","source_id(keyed_name),related_id(keyed_name)")
+AutoCreateMembers.setAttribute("serverEvents","0")
+AutoCreateMembers.setProperty("source_id",AutoCreateIdentity.GetID())
+
+AutoCreateMembers = AutoCreateMembers.apply()
+If AutoCreateMembers.isError() Then Return Me 'nothing to do
+
+Dim dtNow As DateTime = System.DateTime.UtcNow
+Dim thisWeekNumber As Integer = DatePart("ww", dtNow)
+Dim thisYear As Integer = DatePart("yyyy", dtNow)
+
+' week number seems 1 off - compared to outlook calendar weeks
+thisWeekNumber = thisWeekNumber - 1
+
+Dim plmIdentity As Aras.Server.Security.Identity = Aras.Server.Security.Identity.GetByName("Aras PLM")
+Dim PermissionWasSet As Boolean = Aras.Server.Security.Permissions.GrantIdentity(plmIdentity)
+
+Dim i As Integer
+For i=0 To AutoCreateMembers.getItemCount()-1
+  Dim relatedIdentity As Item = AutoCreateMembers.getItemByIndex(i).getRelatedItem()
+  Dim MemberName As String = relatedIdentity.getProperty("keyed_name","")
+  
+  Dim timeSheetName As String = thisYear & "week" & thisWeekNumber & " - " & MemberName
+  
+  Dim timeSheet As Item = inn.newItem("Time Sheet","merge")
+  timeSheet.setAttribute("where","[Time_Sheet].name='" & timeSheetName & "'")
+  timeSheet.setProperty("name",timeSheetName)
+  ' set member to owner of time sheet
+  timeSheet.setProperty("owned_by_id",AutoCreateMembers.getItemByIndex(i).getProperty("related_id",""))
+  
+  timeSheet = timeSheet.apply()
+  
+  If Not timeSheet.isError() Then
+    ' promote to "Active"
+    timeSheet.setAction("promoteItem")
+    timeSheet.setProperty("state","Active")
+    timeSheet = timeSheet.apply()  
+  End If  
+	
+Next i
+
+If (PermissionWasSet=True) Then
+	Aras.Server.Security.Permissions.RevokeIdentity(plmIdentity)
+End If	
+
+Return inn.newResult("New Time Sheets for week:" & thisWeekNumber & " got created")]]></method_code>
+  <method_type>VB</method_type>
+  <name>Time Sheet AutoCreate Weekly</name>
+ </Item>
+</AML>

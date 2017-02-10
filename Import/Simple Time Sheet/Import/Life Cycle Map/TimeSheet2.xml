@@ -1,0 +1,139 @@
+﻿<AML>
+ <Item type="Life Cycle Map" id="96BECFC7EDF746488F7B658F066D4403" action="add">
+  <start_state keyed_name="New" type="Life Cycle State">1AE2DA00F4C84DA39915A3820CEE8491</start_state>
+  <name>TimeSheet2</name>
+  <Relationships>
+   <Item type="Life Cycle State" id="EE6EF7C878C34483823BB6D64E57F6CB" action="add">
+    <image>../images/LifeCycleState.svg</image>
+    <label xml:lang="en">Active</label>
+    <set_is_released>0</set_is_released>
+    <set_not_lockable>0</set_not_lockable>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="TimeSheet2" type="Life Cycle Map">96BECFC7EDF746488F7B658F066D4403</source_id>
+    <state_permission_id keyed_name="Time Sheet - New" type="Permission">A87F0C79D9504159909E95931C957236</state_permission_id>
+    <workflow keyed_name="Time Sheet" type="Workflow Map">944E9AF9722F4D56B8B0DFEC53D8F75A</workflow>
+    <x>228</x>
+    <y>76</y>
+    <name>Active</name>
+   </Item>
+   <Item type="Life Cycle State" id="8CB8DB38D6CF4522844C757943FE5C93" action="add">
+    <image>../images/LifeCycleState.svg</image>
+    <label xml:lang="en">Booked</label>
+    <set_is_released>0</set_is_released>
+    <set_not_lockable>0</set_not_lockable>
+    <sort_order>512</sort_order>
+    <source_id keyed_name="TimeSheet2" type="Life Cycle Map">96BECFC7EDF746488F7B658F066D4403</source_id>
+    <state_permission_id keyed_name="Time Sheet - Booked" type="Permission">7FEC2D20EC3C478F9A0C3713AF082C2C</state_permission_id>
+    <x>521</x>
+    <y>76</y>
+    <name>Booked</name>
+   </Item>
+   <Item type="Life Cycle State" id="9473FE035FA147FC817574028A4DAF19" action="add">
+    <image>../images/LifeCycleState.svg</image>
+    <set_is_released>0</set_is_released>
+    <set_not_lockable>0</set_not_lockable>
+    <sort_order>640</sort_order>
+    <source_id keyed_name="TimeSheet2" type="Life Cycle Map">96BECFC7EDF746488F7B658F066D4403</source_id>
+    <state_permission_id keyed_name="Time Sheet - Closed" type="Permission">BB696183B9FD484086C3B8D595E26040</state_permission_id>
+    <x>624</x>
+    <y>68</y>
+    <name>Closed</name>
+   </Item>
+   <Item type="Life Cycle State" id="6B4F96DC38C34748B73C577E5333D52F" action="add">
+    <image>../images/LifeCycleState.svg</image>
+    <label xml:lang="en">In Review</label>
+    <set_is_released>0</set_is_released>
+    <set_not_lockable>0</set_not_lockable>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="TimeSheet2" type="Life Cycle Map">96BECFC7EDF746488F7B658F066D4403</source_id>
+    <state_permission_id keyed_name="Time Sheet - In Review" type="Permission">CF48A9B4029C44D88F8A6CFF99732C04</state_permission_id>
+    <x>379</x>
+    <y>78</y>
+    <name>In Review</name>
+   </Item>
+   <Item type="Life Cycle State" id="1AE2DA00F4C84DA39915A3820CEE8491" action="add">
+    <image>../images/LifeCycleState.svg</image>
+    <label xml:lang="en">New</label>
+    <set_is_released>0</set_is_released>
+    <set_not_lockable>0</set_not_lockable>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="TimeSheet2" type="Life Cycle Map">96BECFC7EDF746488F7B658F066D4403</source_id>
+    <x>79</x>
+    <y>62</y>
+    <name>New</name>
+   </Item>
+   <Item type="Life Cycle Transition" id="65FE0872CBEE4580893A44F5E55D436A" action="add">
+    <from_state keyed_name="New" type="Life Cycle State">1AE2DA00F4C84DA39915A3820CEE8491</from_state>
+    <get_comment>0</get_comment>
+    <post_action keyed_name="Time Sheet Set Reporting Dates" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>Time Sheet Set Reporting Dates</name>
+     </Item>
+    </post_action>
+    <role keyed_name="Time Sheet Users" type="Identity">8E14656E18C047A8A15C724A91F1FE5C</role>
+    <segments />
+    <sort_order>128</sort_order>
+    <source_id keyed_name="TimeSheet2" type="Life Cycle Map">96BECFC7EDF746488F7B658F066D4403</source_id>
+    <to_state keyed_name="Active" type="Life Cycle State">EE6EF7C878C34483823BB6D64E57F6CB</to_state>
+    <x>0</x>
+    <y>0</y>
+   </Item>
+   <Item type="Life Cycle Transition" id="611B2136AF9B43DD96107BFD7519518C" action="add">
+    <from_state keyed_name="In Review" type="Life Cycle State">6B4F96DC38C34748B73C577E5333D52F</from_state>
+    <get_comment>0</get_comment>
+    <role keyed_name="Aras PLM" type="Identity">56A96DA9E981481688563E2D14D5D878</role>
+    <segments>312,23</segments>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="TimeSheet2" type="Life Cycle Map">96BECFC7EDF746488F7B658F066D4403</source_id>
+    <to_state keyed_name="Active" type="Life Cycle State">EE6EF7C878C34483823BB6D64E57F6CB</to_state>
+    <x>0</x>
+    <y>0</y>
+   </Item>
+   <Item type="Life Cycle Transition" id="D55EAAC3B6A64671AC83145BCBA46493" action="add">
+    <from_state keyed_name="In Review" type="Life Cycle State">6B4F96DC38C34748B73C577E5333D52F</from_state>
+    <get_comment>0</get_comment>
+    <post_action keyed_name="Time Sheet Book Hours to Target" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>Time Sheet Book Hours to Target</name>
+     </Item>
+    </post_action>
+    <role keyed_name="Aras PLM" type="Identity">56A96DA9E981481688563E2D14D5D878</role>
+    <sort_order>640</sort_order>
+    <source_id keyed_name="TimeSheet2" type="Life Cycle Map">96BECFC7EDF746488F7B658F066D4403</source_id>
+    <to_state keyed_name="Booked" type="Life Cycle State">8CB8DB38D6CF4522844C757943FE5C93</to_state>
+   </Item>
+   <Item type="Life Cycle Transition" id="6FDF9FA7974040D592A5A12B5C53CD94" action="add">
+    <from_state keyed_name="Booked" type="Life Cycle State">8CB8DB38D6CF4522844C757943FE5C93</from_state>
+    <get_comment>0</get_comment>
+    <role keyed_name="Aras PLM" type="Identity">56A96DA9E981481688563E2D14D5D878</role>
+    <sort_order>768</sort_order>
+    <source_id keyed_name="TimeSheet2" type="Life Cycle Map">96BECFC7EDF746488F7B658F066D4403</source_id>
+    <to_state keyed_name="Closed" type="Life Cycle State">9473FE035FA147FC817574028A4DAF19</to_state>
+   </Item>
+   <Item type="Life Cycle Transition" id="3F6DA1B6D4C244949A299DAD06BD1621" action="add">
+    <from_state keyed_name="Active" type="Life Cycle State">EE6EF7C878C34483823BB6D64E57F6CB</from_state>
+    <get_comment>0</get_comment>
+    <role keyed_name="Aras PLM" type="Identity">56A96DA9E981481688563E2D14D5D878</role>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="TimeSheet2" type="Life Cycle Map">96BECFC7EDF746488F7B658F066D4403</source_id>
+    <to_state keyed_name="In Review" type="Life Cycle State">6B4F96DC38C34748B73C577E5333D52F</to_state>
+   </Item>
+   <Item type="Life Cycle Transition" id="EBF75F51ABEB421CB2A416872214B7D7" action="add">
+    <from_state keyed_name="Active" type="Life Cycle State">EE6EF7C878C34483823BB6D64E57F6CB</from_state>
+    <get_comment>0</get_comment>
+    <post_action keyed_name="Time Sheet Book Hours to Target" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>Time Sheet Book Hours to Target</name>
+     </Item>
+    </post_action>
+    <role keyed_name="Aras PLM" type="Identity">56A96DA9E981481688563E2D14D5D878</role>
+    <segments>385,177</segments>
+    <sort_order>512</sort_order>
+    <source_id keyed_name="TimeSheet2" type="Life Cycle Map">96BECFC7EDF746488F7B658F066D4403</source_id>
+    <to_state keyed_name="Booked" type="Life Cycle State">8CB8DB38D6CF4522844C757943FE5C93</to_state>
+    <x>0</x>
+    <y>0</y>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

@@ -1,0 +1,41 @@
+﻿<AML>
+ <Item type="Method" id="4F85DDEC3F4F47BB9511519A2673180F" action="add">
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[' triggered from Time Sheet's life cycle
+'
+' if reporting_period_started_on is not set, yet this logic assumes the life cycle
+' activaes the time sheet
+'
+' if reporting_period_started_on is set, yet this logic assumes the life cycle
+' closes the time sheet --- date (reporting_period_ended_on will be set)
+'
+'System.Diagnostics.Debugger.Break()
+Dim plmIdentity As Aras.Server.Security.Identity = Aras.Server.Security.Identity.GetByName("Aras PLM")
+Dim PermissionWasSet As Boolean = Aras.Server.Security.Permissions.GrantIdentity(plmIdentity)
+
+Dim dtNow As DateTime = System.DateTime.UtcNow
+Dim tmpPtrn As String = "yyyy-MM-ddTHH:mm:ss"
+Dim tmpDt As String = dtNow.toString(tmpPtrn, DateTimeFormatInfo.InvariantInfo)
+Dim sCntxt As I18NSessionContext = Me.getInnovator().getI18NSessionContext()
+Dim myDate As String = sCntxt.ConvertUtcDateTimeToNeutral(tmpDt, tmpPtrn)
+
+If (Me.getProperty("reporting_period_started_on","") = "") Then
+  Me.setProperty("reporting_period_started_on", myDate)
+Else
+  If Me.getProperty("reporting_period_ended_on","") <> "" Then Return Me
+  Me.setProperty("reporting_period_ended_on", myDate)
+End If
+Me.setAttribute("version","0")
+Me.setAttribute("serverEvents","0")
+Me.setAttribute("doGetItem", "0")
+Me.setAction("edit")
+Dim res As Item = Me.apply()
+
+If (PermissionWasSet=True) Then
+	Aras.Server.Security.Permissions.RevokeIdentity(plmIdentity)
+End If	
+Return res]]></method_code>
+  <method_type>VB</method_type>
+  <name>Time Sheet Set Reporting Dates</name>
+ </Item>
+</AML>

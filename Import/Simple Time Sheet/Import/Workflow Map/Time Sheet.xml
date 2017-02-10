@@ -1,0 +1,240 @@
+﻿<AML>
+ <Item type="Workflow Map" id="944E9AF9722F4D56B8B0DFEC53D8F75A" action="add">
+  <description xml:lang="en">Simple workflow to track time reporting</description>
+  <node_bg_color>       </node_bg_color>
+  <node_label1_color>       </node_label1_color>
+  <node_label1_font />
+  <node_label2_color>       </node_label2_color>
+  <node_label2_font />
+  <node_name_color>       </node_name_color>
+  <node_name_font />
+  <node_size />
+  <process_owner keyed_name="Creator" type="Identity">
+   <Item type="Identity" action="get" select="id">
+    <name>Creator</name>
+   </Item>
+  </process_owner>
+  <transition_line_color>       </transition_line_color>
+  <transition_name_color>       </transition_name_color>
+  <transition_name_font />
+  <name>Time Sheet</name>
+  <Relationships>
+   <Item type="Workflow Map Activity" action="add">
+    <related_id keyed_name="End" type="Activity Template">
+     <Item type="Activity Template" id="F644E1266FC0480AB88993D4D077C3C3" action="add">
+      <can_delegate>0</can_delegate>
+      <can_refuse>0</can_refuse>
+      <consolidate_ondelegate>0</consolidate_ondelegate>
+      <expected_duration>0</expected_duration>
+      <icon>../images/Stop.svg</icon>
+      <is_auto>1</is_auto>
+      <is_end>1</is_end>
+      <is_start>0</is_start>
+      <message xml:lang="en">Workflow End</message>
+      <priority>1</priority>
+      <reminder_count>0</reminder_count>
+      <reminder_interval>0</reminder_interval>
+      <timeout_duration>0</timeout_duration>
+      <wait_for_all_inputs>0</wait_for_all_inputs>
+      <wait_for_all_votes>0</wait_for_all_votes>
+      <x>545</x>
+      <y>19</y>
+      <name>End</name>
+      <Relationships>
+       <Item type="Activity Template Transition" id="FD54101D5AD249E9930126B30DD1839E" action="add">
+        <controlled_itemtype keyed_name="Time Sheet" type="ItemType" name="Time Sheet">CADBECEDADCB4BFF88DB307ABDCDAA3E</controlled_itemtype>
+        <event>on_activate</event>
+        <related_id keyed_name="D55EAAC3B6A64671AC83145BCBA46493" type="Life Cycle Transition">D55EAAC3B6A64671AC83145BCBA46493</related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="End" type="Activity Template">F644E1266FC0480AB88993D4D077C3C3</source_id>
+       </Item>
+       <Item type="Activity Template Transition" id="E20C7D48BC6E4DF5901E99555DDEF491" action="add">
+        <controlled_itemtype keyed_name="Time Sheet" type="ItemType" name="Time Sheet">CADBECEDADCB4BFF88DB307ABDCDAA3E</controlled_itemtype>
+        <event>on_activate</event>
+        <related_id keyed_name="EBF75F51ABEB421CB2A416872214B7D7" type="Life Cycle Transition">EBF75F51ABEB421CB2A416872214B7D7</related_id>
+        <sort_order>256</sort_order>
+        <source_id keyed_name="End" type="Activity Template">F644E1266FC0480AB88993D4D077C3C3</source_id>
+       </Item>
+      </Relationships>
+     </Item>
+    </related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Time Sheet" type="Workflow Map">944E9AF9722F4D56B8B0DFEC53D8F75A</source_id>
+   </Item>
+   <Item type="Workflow Map Activity" action="add">
+    <related_id keyed_name="Start" type="Activity Template">
+     <Item type="Activity Template" id="1D106F1B717340C1AE3C7358499C6D12" action="add">
+      <can_delegate>0</can_delegate>
+      <can_refuse>0</can_refuse>
+      <consolidate_ondelegate>0</consolidate_ondelegate>
+      <expected_duration>0</expected_duration>
+      <icon>../images/WorkflowStart.svg</icon>
+      <is_auto>1</is_auto>
+      <is_end>0</is_end>
+      <is_start>1</is_start>
+      <message xml:lang="en">Workflow Start</message>
+      <priority>2</priority>
+      <reminder_count>0</reminder_count>
+      <reminder_interval>0</reminder_interval>
+      <timeout_duration>0</timeout_duration>
+      <wait_for_all_inputs>0</wait_for_all_inputs>
+      <wait_for_all_votes>0</wait_for_all_votes>
+      <x>150</x>
+      <y>22</y>
+      <name>Start</name>
+      <Relationships>
+       <Item type="Workflow Map Path" id="8C7FB474628A47FEA504C71CB98536A4" action="add">
+        <authentication>none</authentication>
+        <is_default>1</is_default>
+        <is_override>0</is_override>
+        <label xml:lang="en">Go</label>
+        <name>Go</name>
+        <related_id>2F087D91D9324D37839BD74059FAD931</related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Start" type="Activity Template">1D106F1B717340C1AE3C7358499C6D12</source_id>
+       </Item>
+      </Relationships>
+     </Item>
+    </related_id>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="Time Sheet" type="Workflow Map">944E9AF9722F4D56B8B0DFEC53D8F75A</source_id>
+   </Item>
+   <Item type="Workflow Map Activity" action="add">
+    <related_id keyed_name="Time Reporting" type="Activity Template">
+     <Item type="Activity Template" id="2F087D91D9324D37839BD74059FAD931" action="add">
+      <can_delegate>0</can_delegate>
+      <can_refuse>0</can_refuse>
+      <consolidate_ondelegate>0</consolidate_ondelegate>
+      <icon>../images/WorkflowNode.svg</icon>
+      <is_auto>0</is_auto>
+      <is_end>0</is_end>
+      <is_start>0</is_start>
+      <message xml:lang="en">Record your hours for defined reporting period...</message>
+      <wait_for_all_inputs>0</wait_for_all_inputs>
+      <wait_for_all_votes>0</wait_for_all_votes>
+      <x>319</x>
+      <y>21</y>
+      <name>Time Reporting</name>
+      <Relationships>
+       <Item type="Activity Template Assignment" id="775D6453D6BA408EB86C337115AF96D9" action="add">
+        <related_id keyed_name="Owner" type="Identity">
+         <Item type="Identity" action="get" select="id">
+          <name>Owner</name>
+         </Item>
+        </related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Time Reporting" type="Activity Template">2F087D91D9324D37839BD74059FAD931</source_id>
+        <is_required>0</is_required>
+        <for_all_members>0</for_all_members>
+        <voting_weight>100</voting_weight>
+       </Item>
+       <Item type="Activity Template Transition" id="C7074F7628224C6CA1BA99B46B1732E0" action="add">
+        <controlled_itemtype keyed_name="Time Sheet" type="ItemType" name="Time Sheet">CADBECEDADCB4BFF88DB307ABDCDAA3E</controlled_itemtype>
+        <event>on_activate</event>
+        <related_id keyed_name="65FE0872CBEE4580893A44F5E55D436A" type="Life Cycle Transition">65FE0872CBEE4580893A44F5E55D436A</related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Time Reporting" type="Activity Template">2F087D91D9324D37839BD74059FAD931</source_id>
+       </Item>
+       <Item type="Activity Template Transition" id="AA95A4D1372146F4AB7F95E6EAACF425" action="add">
+        <controlled_itemtype keyed_name="Time Sheet" type="ItemType" name="Time Sheet">CADBECEDADCB4BFF88DB307ABDCDAA3E</controlled_itemtype>
+        <event>on_activate</event>
+        <related_id keyed_name="611B2136AF9B43DD96107BFD7519518C" type="Life Cycle Transition">611B2136AF9B43DD96107BFD7519518C</related_id>
+        <sort_order>256</sort_order>
+        <source_id keyed_name="Time Reporting" type="Activity Template">2F087D91D9324D37839BD74059FAD931</source_id>
+       </Item>
+       <Item type="Workflow Map Path" id="D4A4062335734D2A8FFBCA0D28CBFEF2" action="add">
+        <authentication>none</authentication>
+        <is_default>0</is_default>
+        <is_override>0</is_override>
+        <name>Close Time Sheet</name>
+        <related_id>F644E1266FC0480AB88993D4D077C3C3</related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Time Reporting" type="Activity Template">2F087D91D9324D37839BD74059FAD931</source_id>
+       </Item>
+       <Item type="Workflow Map Path" id="587562E857B4482A82AB9F4B21222CE9" action="add">
+        <authentication>none</authentication>
+        <is_default>0</is_default>
+        <is_override>0</is_override>
+        <name>Submit ro Review</name>
+        <related_id>6B69AE20C736403EB76DE5B747AA4BC9</related_id>
+        <segments />
+        <sort_order>256</sort_order>
+        <source_id keyed_name="Time Reporting" type="Activity Template">2F087D91D9324D37839BD74059FAD931</source_id>
+        <x>24</x>
+        <y>67</y>
+       </Item>
+      </Relationships>
+     </Item>
+    </related_id>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="Time Sheet" type="Workflow Map">944E9AF9722F4D56B8B0DFEC53D8F75A</source_id>
+   </Item>
+   <Item type="Workflow Map Activity" action="add">
+    <related_id keyed_name="Time Sheet Review" type="Activity Template">
+     <Item type="Activity Template" id="6B69AE20C736403EB76DE5B747AA4BC9" action="add">
+      <can_delegate>0</can_delegate>
+      <can_refuse>0</can_refuse>
+      <consolidate_ondelegate>0</consolidate_ondelegate>
+      <icon>../images/WorkflowNode.svg</icon>
+      <is_auto>0</is_auto>
+      <is_end>0</is_end>
+      <is_start>0</is_start>
+      <message xml:lang="en">Please Review Time Sheet ...</message>
+      <wait_for_all_inputs>0</wait_for_all_inputs>
+      <wait_for_all_votes>0</wait_for_all_votes>
+      <x>403</x>
+      <y>120</y>
+      <name>Time Sheet Review</name>
+      <Relationships>
+       <Item type="Activity Template Assignment" id="DEAFD96288A5447892725D5A891F0E35" action="add">
+        <related_id keyed_name="Manager" type="Identity">
+         <Item type="Identity" action="get" select="id">
+          <name>Manager</name>
+         </Item>
+        </related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Time Sheet Review" type="Activity Template">6B69AE20C736403EB76DE5B747AA4BC9</source_id>
+        <is_required>0</is_required>
+        <for_all_members>0</for_all_members>
+        <voting_weight>100</voting_weight>
+       </Item>
+       <Item type="Activity Template Transition" id="56AFF153F89B4459B5AB3FC197733A50" action="add">
+        <controlled_itemtype keyed_name="Time Sheet" type="ItemType" name="Time Sheet">CADBECEDADCB4BFF88DB307ABDCDAA3E</controlled_itemtype>
+        <event>on_activate</event>
+        <related_id keyed_name="3F6DA1B6D4C244949A299DAD06BD1621" type="Life Cycle Transition">3F6DA1B6D4C244949A299DAD06BD1621</related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Time Sheet Review" type="Activity Template">6B69AE20C736403EB76DE5B747AA4BC9</source_id>
+       </Item>
+       <Item type="Workflow Map Path" id="7F71E42B39454A2B8A28C130A89E7AB8" action="add">
+        <authentication>password</authentication>
+        <is_default>0</is_default>
+        <is_override>0</is_override>
+        <name>Approve Time Sheet</name>
+        <related_id>F644E1266FC0480AB88993D4D077C3C3</related_id>
+        <segments />
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Time Sheet Review" type="Activity Template">6B69AE20C736403EB76DE5B747AA4BC9</source_id>
+        <x>60</x>
+        <y>-27</y>
+       </Item>
+       <Item type="Workflow Map Path" id="04FFDFB4BEBA4D08827437FD3B685CFD" action="add">
+        <authentication>none</authentication>
+        <is_default>0</is_default>
+        <is_override>0</is_override>
+        <name>Back to Time Reporting</name>
+        <related_id>2F087D91D9324D37839BD74059FAD931</related_id>
+        <segments>348,131</segments>
+        <sort_order>256</sort_order>
+        <source_id keyed_name="Time Sheet Review" type="Activity Template">6B69AE20C736403EB76DE5B747AA4BC9</source_id>
+        <x>-185</x>
+        <y>11</y>
+       </Item>
+      </Relationships>
+     </Item>
+    </related_id>
+    <sort_order>512</sort_order>
+    <source_id keyed_name="Time Sheet" type="Workflow Map">944E9AF9722F4D56B8B0DFEC53D8F75A</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

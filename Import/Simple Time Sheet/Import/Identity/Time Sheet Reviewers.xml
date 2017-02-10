@@ -1,0 +1,17 @@
+﻿<AML>
+ <Item type="Identity" id="7A9EEE90D94D492C9FE4CDF14BDC6659" action="add">
+  <description>Use in Time Sheets for Manager Identity</description>
+  <is_alias>0</is_alias>
+  <name>Time Sheet Reviewers</name>
+  <Relationships />
+ </Item>
+ <Item type="Member" id="E786E768728446FBA8C4DCDC5244B819" action="add">
+  <related_id keyed_name="Innovator Admin" type="Identity">
+   <Item type="Identity" action="get" select="id">
+    <name>Innovator Admin</name>
+   </Item>
+  </related_id>
+  <sort_order>128</sort_order>
+  <source_id keyed_name="Time Sheet Reviewers" type="Identity">7A9EEE90D94D492C9FE4CDF14BDC6659</source_id>
+ </Item>
+</AML>

@@ -1,0 +1,276 @@
+﻿<AML>
+ <Item type="Method" id="67650E845B574F6EA51237F8ACE27B07" action="add">
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[// Client side Method: Grid1 Handler
+// 
+// load with --> onLoad Event on a Form:
+//
+// requires additional HTML in an HTML field on this form !!
+//
+// the variable flatGrid1_Control is defined globally in separate HTML code on form field
+// the variable toolbar1_Control is defined globally in separate HTML code on form field
+//
+//  ---- history -----
+//  rl  08.Jan.2011   initail version
+//
+// ====================================================================================================================
+if (OnLoadMethodsLoaded) {return;}
+var result;
+var isStartedFromTab = (top.relationships && top.relationships !== undefined);
+
+// global variables
+var thisItem,thisItemType,thisItemId,thisItemGeneration,thisItemStatus;
+var thisItemIsReleasedFlag,thisItemMajorRev,thisItemKN;
+var columnProperties = "";
+var columnWidths = "";
+var columnAlign = "";
+var columnDisplayTypes = "";
+var itemSelectProperties = "";
+var GridLayoutSettings = "";
+var treeGrid1;
+var GridXMLHeader;
+var tablabel = "";
+var gridItemType = "Project Space";
+
+//--------------
+initGlobalVariables = function () {
+ //debugger;
+ if (isStartedFromTab) 
+ {
+   thisItem = top.frames[1].document.thisItem;
+   
+  // ### language dependent since tab labels can be in different languages
+  // ### add more logic to handle current language setting and read tab labels from resources file
+  var tabId = top.relationships.relTabbar.GetSelectedTab();
+  tablabel = top.relationships.relTabbar.GetTabLabel(tabId);
+ 
+ }
+ else
+ {
+   tablabel = "related Projects";
+ }
+
+  thisItemId = thisItem.getProperty("id","");
+  thisItemStatus = thisItem.getProperty("state","");
+  thisItemType = thisItem.getAttribute("type","");
+
+// add supported ItemTypes and their ChangeHistory Relationsships here ...
+  columnProperties = "<empty>,item_number,locked_by_id,name,state";
+  columnWidths = "40,100,40,200,80";
+  columnAlign = "c,l,c,l,c";
+  columnDisplayTypes = "icon,text,lock,text,text:bg_color";
+//  columnDisplayTypes = "icon,text,lock,text,text:bg_color,item(keyed_name)";
+  itemSelectProperties = "locked_by_id,item_number,name,state,managed_by_id(keyed_name)";
+
+  flatGrid1 = new TimeSheetRelProjectsGrid;
+};
+
+// ========= MAIN - callbacks for HTML skeleton in HTML field on the Form ========
+// -- callback to populate grid --
+window.RefreshGrid = function(doInit,item)
+{
+  if(doInit === undefined) {doInit = true;}
+  if(item !== undefined) {thisItem = item;}
+
+  initGlobalVariables();
+  	
+//  if(!treeGrid1.Initialized)
+  if(doInit)
+  {
+	flatGrid1.Initialize();
+  }
+  
+  fn_setTbControlEnabled("refresh_all", false);
+  try
+  {
+    flatGrid1.Draw(true);
+  }
+  finally
+  {
+    fn_setTbControlEnabled("refresh_all", true);
+  }
+  fn_initToolbar();
+};
+
+// -- callback to initialize toolbar --
+window.loadGridToolbarHTML = function()
+{
+  var toolbarHTMLstring = '';
+  toolbarHTMLstring += '<toolbarapplet on_click="toolbar1_onToolbarClick" ';
+  toolbarHTMLstring += 'on_load="toobarStart" buttonstyle="windows"  buttonsize="40,22" font="' + "Arial-bold-10" + '" ';
+  toolbarHTMLstring += 'top_border="1"  bottom_border="1"><toolbar id="toolbar"> ';
+  toolbarHTMLstring += '<button text="View Item" id="view_item" image="icons/20x20view.gif" tooltip="View Item" disabled="true" /> ';
+  toolbarHTMLstring += '<separator/> ';
+  toolbarHTMLstring += '<button text="Refresh" id="refresh_all" image="icons/20x20refresh.gif" tooltip="Refresh" disabled="false" /> ';
+  toolbarHTMLstring += '</toolbar></toolbarapplet>';
+	  
+  toolbar1_Control.loadToolbarFromStr(toolbarHTMLstring);
+//  toolbar1_Control.loadXML(toolbarHTMLstring);
+  return;
+};
+
+
+//==================== Grid Layout & Style ===================================
+TimeSheetRelProjectsGrid = function TimeSheetRelProjectsGridFunc()
+{
+	this.itemType = thisItem.getAttribute("type","");
+};
+
+var standardGridFont= "Microsoft Sans Serif-8";
+var italicGridFont= "Microsoft Sans Serif-italic-8";
+
+//------- Initialize the layout of the Grid
+TimeSheetRelProjectsGrid.prototype.Initialize = function TimeSheetRelProjectsGrid_Initialize()
+{
+ //#####  FLAT GRID LIST #####
+
+  GridXMLHeader = '';
+  GridXMLHeader += '<?xml version="1.0"?><table font="' + standardGridFont + '" ';
+  GridXMLHeader += 'backgroundColor="white" ';
+  GridXMLHeader += 'sel_bgColor="steelbue" '; // html predefined
+  GridXMLHeader += 'sel_TextColor="white" ';
+  GridXMLHeader += 'header_BgColor="buttonface" ';
+  GridXMLHeader += 'delim ="|" ';
+  //GridXMLHeader += 'zebra="true" ';
+  GridXMLHeader += 'editable="false" ';
+  GridXMLHeader += 'draw_grid="true" ';
+  GridXMLHeader += 'bgInvert="true" ';    
+  GridXMLHeader += '  column_draggable="true" ';
+  GridXMLHeader += '> ';
+
+  // column headings
+  GridXMLHeader += '<thead>';
+  GridXMLHeader += fn_GenerateTableHeadingsXML (gridItemType,"",columnProperties);
+  GridXMLHeader += '</thead>';
+
+  GridXMLHeader += '<columns>';
+  GridXMLHeader += fn_GenerateTableColumnsXML (columnWidths,columnAlign);
+  GridXMLHeader += '</columns>';
+  
+  GridXMLHeader += '<menu>';
+  GridXMLHeader += '<emptytag/>';
+  GridXMLHeader += '</menu>';
+  GridXMLHeader += '</table>';
+
+  this.Initialized = true;
+
+};
+
+//------- populate the Grid
+TimeSheetRelProjectsGrid.prototype.Draw = function TimeSheetRelProjectsGrid_Draw(forceGetRelationships)
+{
+  //debugger;
+  flatGrid1_Control.clear();
+  flatGrid1_Control.InitXml(GridXMLHeader);	
+  
+  populateGridWithRelatedProjects(gridItemType);
+
+  top.aras.clearStatusMessage(); // clears Loading Form .. message
+  fn_setResultsCountOnStatusBar(flatGrid1_Control.GetRowCount());
+};
+
+//===============
+populateGridWithRelatedProjects = function (projType) {
+ //debugger;
+
+ var whereStr = "[Time_Sheet_Pos].source_id='" + thisItemId + "'";
+ whereStr += " and [Time_Sheet_Pos].project_reference is not null";
+ var qry = top.aras.newIOMItem("Time Sheet Pos","get");
+ qry.setAttribute("select","source_id,project_reference");
+ qry.setAttribute("where",whereStr);
+ qry = qry.apply();
+
+ // collect ids list
+ var idsList = "##";
+ for (var i=0;i < qry.getItemCount(); i++)
+ {
+   var projKN = qry.getItemByIndex(i).getProperty("project_reference","");
+   if (projKN !== "") {
+     idsList += ",'" +  projKN + "'";
+   }
+ }
+ idsList = idsList.replace(/##\,/,"");
+
+ qry = top.aras.newIOMItem(projType,"get");
+ qry.setAttribute ("select",itemSelectProperties+",generation,config_id");
+ qry.setPropertyAttribute("keyed_name","condition","in");  
+ qry.setProperty("keyed_name",idsList);
+ qry = qry.apply();
+  
+ AddRowsToGrid (qry,projType);
+
+};
+
+//----------------
+AddRowsToGrid = function (rowItems,projType) {
+ var rowIcon="";
+ 
+  if (rowItems.getItemCount > 0) {
+    rowIcon = fn_GetSmallIconFormatOfItemType (projType);
+  }
+
+  for (var i=0; i<rowItems.getItemCount(); i++) {
+    var rowItem = rowItems.getItemByIndex(i);
+
+    var newNodeId = rowItem.getID();
+    fn_FlatGrid_AddRowToGrid (flatGrid1_Control,newNodeId,columnProperties,columnDisplayTypes,rowIcon,rowItem,false);
+	
+	flatGrid1_Control.setUserData(newNodeId,"gridData_itemID",newNodeId);
+	flatGrid1_Control.setUserData(newNodeId,"gridData_itemtype",rowItem.GetType() );
+  }
+
+};
+
+
+// =============================  Click Handlers ===============================
+// ==================================================================================================================
+fn_initToolbar = function () {
+  fn_setTbControlEnabled("view_item", true);
+
+  var val = (top.aras.getVariable('ShowLabels') == 'true');
+  toolbar1_Control.showLabels(val);
+};
+
+flatGrid1_onGridClick = function (row,c) {
+ 	fn_setTbControlEnabled("view_item", true);
+};
+
+toolbar1_onToolbarClick = function (item) {
+	if (item.getId() == "refresh_all") {fn_onRefreshAll();}
+    if (item.getId() == "view_item") {fn_onViewItem();}
+};
+
+flatGrid1_onGridMenuInit = function (row,col,p) {
+	var mnu = flatGrid1_Control.getMenu();
+	mnu.removeAll();
+	mnu.add("view_item","View Item");
+//	mnu.addSeparator();
+
+	mnu.show();
+};
+
+flatGrid1_onGridMenuClick = function (menuChoice) {
+  if (menuChoice == "view_item") {fn_onViewItem();}
+};
+
+flatGrid1_onGridDoubleClick = function (row) {
+  fn_onViewItem();
+};
+
+fn_onRefreshAll = function () {
+   window.RefreshGrid(true);
+};
+
+fn_onViewItem = function () {
+  var selectedId = flatGrid1_Control.getSelectedId();
+  if (!selectedId) {return;}
+  var my_itemtype = flatGrid1_Control.getUserData(selectedId,"gridData_itemtype");
+  var my_itemid = flatGrid1_Control.getUserData(selectedId,"gridData_itemID");
+  if (my_itemid === "") {return;}
+  top.aras.uiShowItem(my_itemtype, my_itemid );
+};
+]]></method_code>
+  <method_type>JavaScript</method_type>
+  <name>Time Sheet Projects Grid Handler</name>
+ </Item>
+</AML>

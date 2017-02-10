@@ -1,0 +1,74 @@
+﻿<AML>
+ <Item type="List" id="3E2A0D7F3F81464592337CB87E5D30E5" action="add">
+  <description>Time Sheets</description>
+  <name>Time Sheet Activity Types</name>
+  <Relationships>
+   <Item type="Value" id="9CEA093DC4094FD3A19AF93B183C5300" action="add">
+    <label xml:lang="en">Misc Admin</label>
+    <sort_order>10</sort_order>
+    <source_id keyed_name="Time Sheet Activity Types" type="List">3E2A0D7F3F81464592337CB87E5D30E5</source_id>
+    <value>Misc Admin</value>
+   </Item>
+   <Item type="Value" id="5E3ADA02A4D8405D8C1A2E1DA4C0910E" action="add">
+    <label xml:lang="en">Customer Project</label>
+    <sort_order>20</sort_order>
+    <source_id keyed_name="Time Sheet Activity Types" type="List">3E2A0D7F3F81464592337CB87E5D30E5</source_id>
+    <value>Customer Project</value>
+   </Item>
+   <Item type="Value" id="8A5EA310EF4F40B09FA0E0B3A555458E" action="add">
+    <label xml:lang="en">Internal Project</label>
+    <sort_order>21</sort_order>
+    <source_id keyed_name="Time Sheet Activity Types" type="List">3E2A0D7F3F81464592337CB87E5D30E5</source_id>
+    <value>Internal Project</value>
+   </Item>
+   <Item type="Value" id="C55010A823C24E74A40BD7D9B768B4AF" action="add">
+    <label xml:lang="en">Support</label>
+    <sort_order>30</sort_order>
+    <source_id keyed_name="Time Sheet Activity Types" type="List">3E2A0D7F3F81464592337CB87E5D30E5</source_id>
+    <value>Support</value>
+   </Item>
+   <Item type="Value" id="85CA9F7C2EA34E04A65C63481B7272FF" action="add">
+    <label xml:lang="en">Meeting</label>
+    <sort_order>40</sort_order>
+    <source_id keyed_name="Time Sheet Activity Types" type="List">3E2A0D7F3F81464592337CB87E5D30E5</source_id>
+    <value>Meeting</value>
+   </Item>
+   <Item type="Value" id="5806F0B0E4C9410ABAC2229220CF0052" action="add">
+    <label xml:lang="en">Travel</label>
+    <sort_order>41</sort_order>
+    <source_id keyed_name="Time Sheet Activity Types" type="List">3E2A0D7F3F81464592337CB87E5D30E5</source_id>
+    <value>Travel</value>
+   </Item>
+   <Item type="Value" id="1C04710AF588415BA5B14DE752E442E2" action="add">
+    <label xml:lang="en">Education</label>
+    <sort_order>42</sort_order>
+    <source_id keyed_name="Time Sheet Activity Types" type="List">3E2A0D7F3F81464592337CB87E5D30E5</source_id>
+    <value>Education</value>
+   </Item>
+   <Item type="Value" id="188D205A1A1943A781FEE1C73ACF30E7" action="add">
+    <label xml:lang="en">Vacation</label>
+    <sort_order>50</sort_order>
+    <source_id keyed_name="Time Sheet Activity Types" type="List">3E2A0D7F3F81464592337CB87E5D30E5</source_id>
+    <value>Vacation</value>
+   </Item>
+   <Item type="Value" id="1E8A62F02AAE4C24BF08ABFCAFBCB2C6" action="add">
+    <label xml:lang="en">Holiday</label>
+    <sort_order>51</sort_order>
+    <source_id keyed_name="Time Sheet Activity Types" type="List">3E2A0D7F3F81464592337CB87E5D30E5</source_id>
+    <value>Holiday</value>
+   </Item>
+   <Item type="Value" id="6CABFB2A534D4D1A943AFD7F4E83E3FC" action="add">
+    <label xml:lang="en">Sick</label>
+    <sort_order>52</sort_order>
+    <source_id keyed_name="Time Sheet Activity Types" type="List">3E2A0D7F3F81464592337CB87E5D30E5</source_id>
+    <value>Sick</value>
+   </Item>
+   <Item type="Value" id="310AE05C11684E6AA94619131D391704" action="add">
+    <label xml:lang="en">Consulting</label>
+    <sort_order>60</sort_order>
+    <source_id keyed_name="Time Sheet Activity Types" type="List">3E2A0D7F3F81464592337CB87E5D30E5</source_id>
+    <value>Consulting</value>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

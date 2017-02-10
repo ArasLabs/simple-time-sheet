@@ -1,0 +1,30 @@
+﻿<AML>
+ <Item type="Permission" id="BB696183B9FD484086C3B8D595E26040" action="add">
+  <is_private>0</is_private>
+  <name>Time Sheet - Closed</name>
+  <Relationships>
+   <Item type="Access" id="1E5AA617368947D7917B6EC000EAA21B" action="add">
+    <can_change_access>1</can_change_access>
+    <can_delete>1</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>1</can_update>
+    <related_id keyed_name="Administrators" type="Identity">2618D6F5A90949BAA7E920D1B04C7EE1</related_id>
+    <show_permissions_warning>1</show_permissions_warning>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Time Sheet - Closed" type="Permission">BB696183B9FD484086C3B8D595E26040</source_id>
+   </Item>
+   <Item type="Access" id="77EF055C12814759A3BF18D3D74FC314" action="add">
+    <can_change_access>1</can_change_access>
+    <can_delete>1</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>1</can_update>
+    <related_id keyed_name="Aras PLM" type="Identity">56A96DA9E981481688563E2D14D5D878</related_id>
+    <show_permissions_warning>1</show_permissions_warning>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="Time Sheet - Closed" type="Permission">BB696183B9FD484086C3B8D595E26040</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

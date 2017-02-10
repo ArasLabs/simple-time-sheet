@@ -1,0 +1,273 @@
+﻿<AML>
+ <Item type="Report" id="F022430A7DE9409AB348194F760A4869" action="add">
+  <label xml:lang="en">Time Sheet Summary</label>
+  <location>server</location>
+  <report_query><![CDATA[<Item type="Time Sheet" id="{@id}" action="get" select="item_number,name,owned_by_id(keyed_name),managed_by_id(keyed_name),state,reporting_period_started_on,reporting_period_ended_on,total_non_billable_hours,total_hours,total_billable_hours">
+ <Relationships>
+  <Item type="Time Sheet Pos" action="get" isCriteria="0" select="pos_number,activity_date,activity_type,activity_description,billable_hours,non_billable_hours,billing_reference,project_reference,customer_partner_name,contact_name,activity_notes">
+  </Item>
+ </Relationships>
+</Item>]]></report_query>
+  <target>one window</target>
+  <type>item</type>
+  <xsl_stylesheet><![CDATA[<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:user="urn:user-scripts" xmlns:aras="http://www.aras.com">
+  <xsl:output method="html" omit-xml-declaration="yes" standalone="yes" indent="yes" cdata-section-elements="script msxsl:script"></xsl:output>
+  <xsl:template match="/">
+    <html>
+      <head>
+      </head>
+      <style type="text/css" userData="Global">
+.cellSolid {
+border-top:1px #000000 solid;
+border-right:1px #000000 solid;
+border-bottom:1px #000000 solid;
+border-left:1px #000000 solid;
+}
+.cellSolidTopRight {
+border-top:1px #000000 solid;
+border-right:1px #000000 solid;
+}
+.cellSolidTopLeft {
+border-top:1px #000000 solid;
+border-left:1px #000000 solid;
+}
+.cellSolidRightBottom {
+border-right:1px #000000 solid;
+border-bottom:1px #000000 solid;
+}
+.cellSolidBottomLeft {
+border-bottom:1px #000000 solid;
+border-left:1px #000000 solid;
+}
+.cellSolidBottomLeftRight {
+border-bottom:1px #000000 solid;
+border-left:1px #000000 solid;
+border-right:1px #000000 solid;
+}
+.cellSolidTop {
+border-top:1px #000000 solid;
+}
+.cellSolidRight {
+border-right:1px #000000 solid;
+}
+.cellSolidBottom {
+border-bottom:1px #000000 solid;
+}
+.cellSolidLeft {
+border-left:1px #000000 solid;
+}
+.cellDashed {
+border-top:1px #666666 dashed;
+border-right:1px #666666 dashed;
+border-bottom:1px #666666 dashed;
+border-left:1px #666666 dashed;
+}
+.cellDashedTopRight {
+border-top:1px #666666 dashed;
+border-right:1px #666666 dashed;
+}
+.cellDashedTopLeft {
+border-top:1px #666666 dashed;
+border-left:1px #666666 dashed;
+}
+.cellDashedBottomRight {
+border-bottom:1px #666666 dashed;
+border-right:1px #666666 dashed;
+}
+.cellDashedBottomLeft {
+border-bottom:1px #666666 dashed;
+border-left:1px #666666 dashed;
+}
+.cellDashedTop {
+border-top:1px #666666 dashed;
+}
+.cellDashedRight {
+border-right:1px #666666 dashed;
+}
+.cellDashedBottom {
+border-bottom:1px #666666 dashed;
+}
+.cellDashedLeft {
+border-left:1px #666666 dashed;
+}
+.cellHeader {
+background-color:#CCCCCC;
+border-top:1px #000000 solid;
+border-right:1px #000000 solid;
+border-bottom:1px #000000 solid;
+padding:2px;
+text-align:center;
+text-transform:capitalize;
+text-align:center;
+font-family:helvetica;
+font-weight:bold;
+font-size:8pt;
+}
+.cellHeaderVertBT {
+background-color:#CCCCCC;
+border-top:1px #000000 solid;
+border-right:1px #000000 solid;
+border-bottom:1px #000000 solid;
+border-left:1px #000000 solid;
+padding:2px;
+writing-mode:tb-rl;filter: flipv fliph;
+text-align:center;
+text-transform:capitalize;
+text-align:center;
+font-family:helvetica;
+font-weight:bold;
+font-size:8pt;
+}
+.cellHeaderVertTB {
+background-color:#CCCCCC;
+border-top:1px #000000 solid;
+border-right:1px #000000 solid;
+border-bottom:1px #000000 solid;
+border-left:1px #000000 solid;
+padding:2px;
+writing-mode:tb-rl;filter: flipv flipv;
+text-align:center;
+text-transform:capitalize;
+text-align:center;
+font-family:helvetica;
+font-weight:bold;
+font-size:8pt;
+}
+</style>
+      <body topmargin="50" leftmargin="50">
+        <script>
+	  </script>
+<!-- report date - I18N compliant -->
+        <p style="font-family:helvetica;font-size:10pt;padding:2px;">Generated on:          <b>
+            <script>
+ 		var a = top.opener.top.aras;
+		function m00(r, n) {r += ""; if (!n) n = 2; while(r.length &lt; n){r = "0" + r;} return r;}
+	    function getI18NDateStringFromUTCDate(utcDate)
+		{
+		  if (!utcDate || utcDate === "") {return "--";} // xslt varable did not resolve
+		  if (a){
+		    var dateStr = a.IomInnovator.GetI18NSessionContext().ConvertUtcDateTimeToNeutral(utcDate,"yyyy-MM-ddTHH:mm:ss");
+		    dateStr = a.convertFromNeutral(dateStr,"date","short_date")
+			return dateStr;
+	      }
+		  return "--"; // empty
+		}
+	    function getI18NDateStringOfNow()
+		{
+		  var dt = new Date();
+		  if (a){
+		    var s = m00(dt.getUTCFullYear(),4)+"-"+m00((dt.getUTCMonth()+1))+"-"+m00(dt.getUTCDate())+"T"+m00(dt.getUTCHours())+":"+m00(dt.getUTCMinutes())+":"+m00(dt.getUTCSeconds());
+			return getI18NDateStringFromUTCDate(s);
+		  }
+		}
+		var dtStr = getI18NDateStringOfNow();
+		document.write(dtStr);
+		</script>
+		</b>
+        </p>
+<!-- DISPLAY HEADER -->
+        <p style="font-family:helvetica;font-size:12pt;color:#DA1943;padding:2px;">
+          <b>Time Sheet Summary</b>
+          <br></br>
+          <span style="font-family:helvetica;font-size:10pt;color:#000000;padding:2px;">Status: [
+            <b>
+              <xsl:value-of select="//Item/state"></xsl:value-of>
+            ]</b>
+            <i>  -  '
+              <xsl:value-of select="//Item/name"></xsl:value-of>
+            '</i>
+          </span>
+		</p>
+        <p style="font-family:helvetica;font-size:10pt;color:#000000;padding:2px;">For:          <b>
+            <xsl:value-of select="//Item/owned_by_id/@keyed_name"></xsl:value-of>
+          </b>       .Reviewers:          <b>
+            <xsl:value-of select="//Item/managed_by_id/@keyed_name"></xsl:value-of>
+          </b>
+        </p>
+        <p style="font-family:helvetica;font-size:10pt;color:#000000;padding:2px;">From:          <b>
+            <script>document.write(getI18NDateStringFromUTCDate('<xsl:value-of select="//Item/reporting_period_started_on"></xsl:value-of>'));</script>
+		</b>  To:          <b>
+            <script>document.write(getI18NDateStringFromUTCDate('<xsl:value-of select="//Item/reporting_period_ended_on"></xsl:value-of>'));</script>
+        </b>
+        </p>
+        <p style="font-family:helvetica;font-size:10pt;color:#000000;padding:2px;">Total Hours:<b>
+		    <xsl:value-of select="//Item/total_hours"></xsl:value-of>
+		  </b>h    Billable Hours:<b><xsl:value-of select="//Item/total_billable_hours"></xsl:value-of>
+		  </b>h    Non-Billable Hours:<b><xsl:value-of select="//Item/total_non_billable_hours"></xsl:value-of>
+		  </b>h</p>
+
+<!-- TIME SHEET POS Table -->
+        <xsl:variable name="isTable" select="count(//Item/Relationships/Item[@type='Time Sheet Pos'])"></xsl:variable>
+        <xsl:if test="$isTable &gt; 0">
+		  <!-- TABLE HEADER -->
+          <p></p>
+          <table border="0" cellspacing="0" cellpadding="0" style="empty-cells: show">
+            <tr>
+              <td width="40"></td>
+              <td width="350"></td>
+              <td width="180"></td>
+              <td width="90"></td>
+              <td width="120"></td>
+              <td width="80"></td>
+              <td width="80"></td>
+              <td width="120"></td>
+              <td width="150"></td>
+              <td width="150"></td>
+              <td width="200"></td>
+              <td width="250"></td>
+            </tr>
+            <tr valign="top">
+              <td class="cellHeader" align="left" style="border-left:1px #000000 solid;">Pos</td>
+              <td class="cellHeader">Activity</td>
+              <td class="cellHeader">Activity Type</td>
+              <td class="cellHeader">Activity Date</td>
+              <td class="cellHeader">Location</td>
+              <td class="cellHeader">Non-Billable</td>
+              <td class="cellHeader">Billable</td>
+              <td class="cellHeader">Billing Ref</td>
+              <td class="cellHeader">Project</td>
+              <td class="cellHeader">Customer/Partner</td>
+              <td class="cellHeader">Contact Name</td>
+              <td class="cellHeader">Notes</td>
+            </tr>
+		  <!-- TABLE ROWS use space code #160 to show empty cells -->
+            <xsl:for-each select="//Item/Relationships/Item[@type='Time Sheet Pos']">
+              <tr>
+                <td style="font-family:helvetica;font-size:8pt;padding:2px;" class="cellSolidBottomLeftRight" align="left">
+				 <xsl:value-of select="pos_number"></xsl:value-of>&#160;</td>
+                <td style="font-family:helvetica;font-size:8pt;padding:2px;" class="cellSolidRightBottom" align="left">
+                  <xsl:value-of select="activity_description"></xsl:value-of>&#160;</td>
+                <td style="font-family:helvetica;font-size:8pt;padding:2px;" class="cellSolidRightBottom" align="left">
+                  <xsl:value-of select="activity_type"></xsl:value-of>&#160;</td>
+                <td style="font-family:helvetica;font-size:8pt;padding:2px;" class="cellSolidRightBottom" align="right">
+                  <script>document.write(getI18NDateStringFromUTCDate('<xsl:value-of select="activity_date"></xsl:value-of>'));</script>&#160;</td>
+                <td style="font-family:helvetica;font-size:8pt;padding:2px;" class="cellSolidRightBottom" align="left">
+                  <xsl:value-of select="activity_location"></xsl:value-of>&#160;</td>
+                <td style="font-family:helvetica;font-size:8pt;padding:2px;" class="cellSolidRightBottom" align="right">
+                  <xsl:value-of select="non_billable_hours"></xsl:value-of>&#160;</td>
+                <td style="font-family:helvetica;font-size:8pt;padding:2px;" class="cellSolidRightBottom" align="right">
+                  <xsl:value-of select="billable_hours"></xsl:value-of>&#160;</td>
+                <td style="font-family:helvetica;font-size:8pt;padding:2px;" class="cellSolidRightBottom" align="left">
+                  <xsl:value-of select="billing_reference"></xsl:value-of>&#160;</td>
+                <td style="font-family:helvetica;font-size:8pt;padding:2px;" class="cellSolidRightBottom" align="left">
+                  <xsl:value-of select="project_reference"></xsl:value-of>&#160;</td>
+                <td style="font-family:helvetica;font-size:8pt;padding:2px;" class="cellSolidRightBottom" align="left">
+                  <xsl:value-of select="customer_partner_name"></xsl:value-of>&#160;</td>
+                <td style="font-family:helvetica;font-size:8pt;padding:2px;" class="cellSolidRightBottom" align="left">
+                  <xsl:value-of select="contact_name"></xsl:value-of>&#160;</td>
+                <td style="font-family:helvetica;font-size:8pt;padding:2px;" class="cellSolidRightBottom" align="left">
+                  <xsl:value-of select="activity_notes"></xsl:value-of>&#160;</td>
+           </tr>
+           </xsl:for-each>
+          </table>
+		</xsl:if>
+    </body>
+      <script src="../../javascript/PopupMenu.js"></script>
+      <script src="../../javascript/PopupMenu.js"></script>
+    </html>
+  </xsl:template>
+
+</xsl:stylesheet>]]></xsl_stylesheet>
+  <name>Time Sheet Summary Report</name>
+ </Item>
+</AML>
