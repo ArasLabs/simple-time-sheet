@@ -1,14 +1,19 @@
-# Simple Time Sheet
-Adds a time sheet business process with automated hours roll-ups and recurent timesheet creation
+# Simple Timesheet
+Adds a timesheet business process with automated hours roll-up and recurrent timesheet creation.
 
 #### How it works
-It allows to have regular timesheet creation. The timesheet itself has all the roll-up, reports, lifecycle and workflow to be a real business application. It can be related to Aras Projects.
+It allows you to have regular timesheet creation. The timesheet itself has all it needs to be a real business application - roll-up, reports, lifecycle and workflow. It can be related to Aras Projects.
 
 ## Project Details
 
-**Built Using:** Aras 11.0 SP7
-**Tested Using:** Aras 11.0 SP7, SP8 and SP9
-**Browsers Tested:** Internet Explorer 11, Firefox 38 ESR, Chrome
+**Built Using:**
+Aras 11.0 SP7
+
+**Tested Using:**
+Aras 11.0 SP7, SP8 and SP9
+
+**Browsers Tested:**
+Internet Explorer 11, Firefox 38 ESR, Chrome
 
 > Though built and tested using Aras 11.0 SP7, this project should function in older releases of Aras 11.0 and Aras 10.0.
 
@@ -36,15 +41,15 @@ It allows to have regular timesheet creation. The timesheet itself has all the r
 8. Click **Import** in the top left corner.
 9. Close the Aras Package Import tool.
 
-You are now ready to login to Aras and try out kanban like task management
+You are now ready to login to Aras and try out the simple timesheets.
 
 ## Usage
 
-* Time Sheet Positions (relationship) are used to enter Activity descriptions, a date and the hours worked
-* TimeSheet Report presents a summary of all recorded hours.
-* Workflow drives the life cycle of a time sheet. Owner can submit it to review. WF activity will show in inBasekt of „Owner“ and „Reviewers“
-* Auto creation of regular (ie. Weekly) time sheets for a defined list of users (members of Identity: „Time Sheet Auto Create Weekly“
- * Aras Innovator Service must be configured to trigger method „Time Sheet AutoCreate Weekly“ i.e. every Sunday. Method can be run manually by Administrators, as well
+* Timesheet Positions (relationship) are used to enter Activity descriptions, a date and the hours worked
+* Timesheet Report presents a summary of all recorded hours.
+* Workflow drives the life cycle of a timesheet. Owner can submit it to review. WF activity will show in My InBasket for the "Owner" and "Reviewers"
+* Auto creation of regular (ie. Weekly) timesheets for a defined list of users (members of Identity: "Time Sheet Auto Create Weekly"
+ * Aras Innovator Service must be configured to trigger method "Time Sheet AutoCreate Weekly" i.e. every Sunday. Method can be run manually by Administrators, as well.
 
 ## Contributing
 
@@ -58,7 +63,7 @@ For more information on contributing to this project, another Aras Labs project,
 
 ## Credits
 
-Original Aras community project written and documented by Rolf Laudenbach at Aras Corp.
+Original Aras Community Project written and documented by Rolf Laudenbach at Aras Corp.
 
 Upgraded to v11 and published by Yoann Maingon at Aras Labs. @YoannArasLab
 
