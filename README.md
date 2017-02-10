@@ -30,7 +30,7 @@ It allows to have regular timesheet creation. The timesheet itself has all the r
   * _Note: You must login as root for the package import to succeed!_
 4. Enter the package name in the TargetRelease field.
   * Optional: Enter a description in the Description field.
-5. Enter the path to your local `..\simple-time-sheet\Import1\imports.mf` file in the Manifest File field.
+5. Enter the path to your local `..\simple-time-sheet\Import\imports.mf` file in the Manifest File field.
 6. Select **Simple Time Sheet** in the Available for Import field.
 7. Select Type = **Merge** and Mode = **Thorough Mode**.
 8. Click **Import** in the top left corner.
@@ -40,11 +40,11 @@ You are now ready to login to Aras and try out kanban like task management
 
 ## Usage
 
-- Time Sheet Positions (relationship) are used to enter Activity descriptions, a date and the hours worked
-- TimeSheet Report presents a summary of all recorded hours.
-- Workflow drives the life cycle of a time sheet. Owner can submit it to review. WF activity will show in inBasekt of „Owner“ and „Reviewers“
-- Auto creation of regular (ie. Weekly) time sheets for a defined list of users (members of Identity: „Time Sheet Auto Create Weekly“
- -- Aras Innovator Service must be configured to trigger method „Time Sheet AutoCreate Weekly“ i.e. every Sunday. Method can be run manually by Administrators, as well
+* Time Sheet Positions (relationship) are used to enter Activity descriptions, a date and the hours worked
+* TimeSheet Report presents a summary of all recorded hours.
+* Workflow drives the life cycle of a time sheet. Owner can submit it to review. WF activity will show in inBasekt of „Owner“ and „Reviewers“
+* Auto creation of regular (ie. Weekly) time sheets for a defined list of users (members of Identity: „Time Sheet Auto Create Weekly“
+ * Aras Innovator Service must be configured to trigger method „Time Sheet AutoCreate Weekly“ i.e. every Sunday. Method can be run manually by Administrators, as well
 
 ## Contributing
 
