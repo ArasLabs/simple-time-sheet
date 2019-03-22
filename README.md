@@ -52,7 +52,7 @@ You are now ready to login to Aras and try out the simple timesheets.
 * Workflow drives the life cycle of a timesheet. Owner can submit it to review. WF activity will show in My InBasket for the "Owner" and "Reviewers"
   * Item must be manually promoted to start Workflow!
 * Auto creation of regular (ie. Weekly) timesheets for a defined list of users (members of Identity: "Time Sheet Auto Create Weekly"
-  * Aras Innovator Service must be configured to trigger method "Time Sheet AutoCreate Weekly" i.e. every Sunday. Method can be run manually by Administrators, as well.
+ * Aras Innovator Service must be configured to trigger method "Time Sheet AutoCreate Weekly" i.e. every Sunday. Method can be run manually by Administrators, as well.
 
 ## Contributing
 
