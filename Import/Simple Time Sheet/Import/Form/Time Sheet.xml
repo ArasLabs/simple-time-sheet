@@ -1,4 +1,4 @@
-﻿<AML>
+<AML>
  <Item type="Form" id="383BF1B2454A45118AFDC67476D52F54" action="add">
   <category_form>0</category_form>
   <height>234</height>
@@ -130,7 +130,7 @@
      <Item type="Field" id="9273685F6F8D4FD89A590C125B9FDC60" action="add">
       <bg_color>#FFFFFF</bg_color>
       <border_width>0</border_width>
-      <display_length>30</display_length>
+      <display_length is_null = "1"></display_length>
       <field_type>item</field_type>
       <font_color>#000000</font_color>
       <font_family>arial, helvetica, sans-serif</font_family>
